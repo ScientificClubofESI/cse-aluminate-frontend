@@ -26,7 +26,7 @@ Follow these steps to set up the frontend locally:
 
 4. **Create a New Branch:**
  
-   git branch your-github-name/lending-page/section-name
+   git branch your-github-name/landing-page/section-name
  
 
 5. **Verify Branch Creation:**
@@ -37,12 +37,12 @@ Follow these steps to set up the frontend locally:
    # Ensure that the list contains:
    ```
    * main
-   your-github-name/lending-page/section-name
+   your-github-name/landing-page/section-name
    ```
 
 6. **Switch to Your Branch:**
    ```
-   git checkout your-github-name/lending-page/section-name
+   git checkout your-github-name/landing-page/section-name
    ```
 
 7. **Verify Branch Switch:**
@@ -53,6 +53,6 @@ Follow these steps to set up the frontend locally:
    # Ensure that the list contains:
    ```
    main
-   *your-github-name/lending-page/section-name
+   *your-github-name/landing-page/section-name
    ```
 
