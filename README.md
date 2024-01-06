@@ -55,4 +55,7 @@ Follow these steps to set up the frontend locally:
    main
    *your-github-name/landing-page/section-name
    ```
-
+8 **Start and run in developement mode**
+```
+npm run dev
+```
