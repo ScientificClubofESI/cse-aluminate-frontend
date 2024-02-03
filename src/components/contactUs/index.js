@@ -4,10 +4,10 @@ import instagram from "../../../public/instagram.svg";
 import twitter from "../../../public/twitter.svg";
 import youtube from "../../../public/youtube.svg";
 import linkedin from "../../../public/linkedin.svg";
-7;
-import footerbg from "../../../public/footerbackground.svg";
-
+// import footerbg from "../../../public/footerbackground.svg";
 import Image from "next/image";
+// import cselogo from "../../../public/cse.svg";
+// import aluminate from "../../../public/aluminate.svg";
 
 const ContactUs = () => {
   const socialmedias = [
@@ -39,15 +39,15 @@ const ContactUs = () => {
     },
   ];
   return (
-    <section className="">
-      <section className=" xl:mt-14 lg:mt-24 sm:mt-28 mt-[3rem] flex flex-col h-[150px] place-content-between xl:gap-10">
+    <div className=" relative ">
+      <section className=" flex flex-col place-content-between xl:gap-10 w-full mx-auto absolute lg:mt-10 mt-24">
         <div className=" flex flex-col items-center">
           <p className="  uppercase font-bold xl:text-5xl text-4xl">
             contact us
           </p>
-          <p className=" text-gray-600 mt-2">
+          <p className=" text-neutral-900 mt-2">
             By email{" "}
-            <span className=" text-green-500 cursor-pointer">
+            <span className=" text-Secondary-600 cursor-pointer">
               {" "}
               <a href="mailto:cse@esi.dz"> cse@esi.dz</a>
             </span>{" "}
@@ -69,9 +69,9 @@ const ContactUs = () => {
           })}
         </div>
       </section>
-      {/* <Image src={footerbg} className=" absolute bottom-0 z-[-5]" /> */}
       <svg
-        className=" absolute sm:bottom-0 bottom-[-20px] z-[-5] lg:h-[250px] h-[300px]"
+        //  className=" absolute sm:bottom-0 bottom-[-20px] z-[-5] lg:h-[250px] h-[300px]"
+        className=""
         width=""
         height="246"
         viewBox="0 0 1440 246"
@@ -80,7 +80,7 @@ const ContactUs = () => {
       >
         <ellipse cx="720" cy="379" rx="884" ry="379" fill="#D0E2FF" />
       </svg>
-    </section>
+    </div>
   );
 };
 
