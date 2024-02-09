@@ -50,7 +50,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className=" h-24 md:flex lg:text-lg items-center md:text-md justify-center font-Outfit font-medium">
+        <nav className=" h-20 md:flex lg:text-lg items-center md:text-md justify-center top-0 bg-white shadow-lg w-full fixed font-Outfit font-medium">
             <div className="hidden container md:flex justify-between items-center">
                 <Link href="/" passHref>
                     <img src="./Assets/Logo.png" alt="" className="lg:h-8 md:h-6 " />
