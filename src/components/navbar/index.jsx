@@ -69,7 +69,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-         <div className="salut h-20 w-full items-center shadow-lg bg-white flex  fixed md:hidden align-center justify-between ">
+         <div className="z-10 h-20 w-full items-center shadow-lg bg-white flex  fixed md:hidden align-center justify-between ">
                 <img src="./Assets/A_logo.png" alt="" className="h-10 ml-10" />
                 <button onClick={toggleRespoList} className="mr-10">
                     {respoListVisible ? (
@@ -82,9 +82,11 @@ const Navbar = () => {
             </div>
 
       {respoListVisible && (
-        <div className="bg-white absolute h-[70%] w-full content-start top-20 grid md:hidden  justify-items-center gap-5 ">
-          <div className=" rounded-3xl h-[200px] mt-16  grid mr-3 content-start gap-0 justify-items-center w-[250px] ">
-            <ul className="grid gap-x-10 gap-y-10  space-x-9 md:space-x-6">
+        <div>
+        <div className="bg-slate-500 md:hidden flex fixed h-full w-full opacity-50"></div>
+        <div className="bg-white fixed shadow-lg h-auto p-5  text-xl gap-y-8 w-full content-start top-10 grid md:hidden justify-items-center z-0 ">
+          <div className=" rounded-3xl  mt-16  grid mr-3 content-start gap-12 justify-items-center  ">
+            <ul className="grid  gap-y-6 justify-items-center space-y-0 content-start md:space-x-6">
                     {sections.map(section => (
                         <li key={section.id} className="cursor-pointer">
                             <ScrollLink to={section.id} smooth={true} duration={500} className={`flex items-center gap-3 ${activeSection === section.id ? "active" : ""}`}>
@@ -92,8 +94,16 @@ const Navbar = () => {
                             </ScrollLink>
                         </li>
                     ))}
+                    
                 </ul>
+
+
+                         <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
+                    <div className=" text-xl font-normal text-white leading-loose tracking-tight">Find Alumni</div>
+                </button>
+                 
           </div>
+        </div>
         </div>
       )}
         </nav>
