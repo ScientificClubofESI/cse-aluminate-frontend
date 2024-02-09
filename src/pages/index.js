@@ -21,11 +21,12 @@ export default function Home() {
       <Hero />
       <About />
       <OurAlumni />
-      <PopularSkills />
       <PopularServices />
       <PopularSkills />
       <Logos />
       <ContactUs />
     </>
-  )
+
+
+  );
 }
