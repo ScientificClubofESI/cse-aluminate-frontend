@@ -4,9 +4,10 @@ import Image from 'next/image'
 
 const PopularSkills = () => {
     return (
-        <div>
+        <section>
 
-                <div className="text-center p-12 font-bold font-12" style={{ fontSize: '48px' }}>
+
+             <div className="text-center p-12 font-bold font-12" style={{ fontSize: '48px' }}>
                 Popular Skills
                 </div>
                 
@@ -166,7 +167,7 @@ const PopularSkills = () => {
                 <Image className=' hidden md:block' src="/ellipsed.svg" width= {200} height={200}/>
 
             </div>
-        </div>
+        </section>
     )
 }
 
