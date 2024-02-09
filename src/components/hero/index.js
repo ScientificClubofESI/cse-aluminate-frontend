@@ -4,6 +4,9 @@ import Image from 'next/image'
 
 const Hero = () => {
     return (
+
+      
+
         <section className='px-[5%] lg:px-[8%] flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-8 lg:grid lg:grid-cols-2 lg:my-[5%]'>
 
             <p className='text-4xl  lg:text-5xl font-extrabold text-center lg:text-left lg:justify-start'>Connecting Alumni Uniting Dreams</p>

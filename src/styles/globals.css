@@ -1,7 +1,13 @@
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 html {
   font-family: var(--font-outfit);
+}
+h1 {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 60px;
 }
 
