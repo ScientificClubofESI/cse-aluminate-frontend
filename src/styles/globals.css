@@ -2,12 +2,19 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-html {
-  font-family: var(--font-outfit);
+
+
+@layer base{
+  html {
+      font-family: var(--font-outfit);
+    }
+    body{
+      background:  linear-gradient(0deg, rgba(4, 100, 255, 0.02) 0%, rgba(4, 100, 255, 0.02) 100%), #FFFBFE;
+    }
 }
-h1 {
+/* h1 {
   font-weight: 800;
   font-size: 48px;
   line-height: 60px;
-}
+} */
 
