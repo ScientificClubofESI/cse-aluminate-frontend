@@ -1,10 +1,5 @@
 import React from "react";
-import facebook from "../../../public/facebook.svg";
-import instagram from "../../../public/instagram.svg";
-import twitter from "../../../public/twitter.svg";
-import youtube from "../../../public/youtube.svg";
-import linkedin from "../../../public/linkedin.svg";
-// import footerbg from "../../../public/footerbackground.svg";
+
 import Image from "next/image";
 // import cselogo from "../../../public/cse.svg";
 // import aluminate from "../../../public/aluminate.svg";
@@ -13,28 +8,28 @@ const ContactUs = () => {
   const socialmedias = [
     {
       id: 0,
-      label: facebook,
+      label: "/facebook.svg",
       link: "https://www.facebook.com/club.scientifique.esi?locale=fr_FR",
     },
 
     {
       id: 1,
-      label: instagram,
+      label: "/instagram.svg",
       link: "https://www.instagram.com/cse.club/",
     },
     {
       id: 2,
-      label: twitter,
+      label: "/twitter.svg",
       link: "https://twitter.com/CSESI_Club",
     },
     {
       id: 3,
-      label: youtube,
+      label: "/youtube.svg",
       link: "https://www.youtube.com/@ClubScientifiqueESI-CSE",
     },
     {
       id: 4,
-      label: linkedin,
+      label: "/linkedin.svg",
       link: "https://www.linkedin.com/company/cse-club/",
     },
   ];
@@ -63,7 +58,7 @@ const ContactUs = () => {
                 href={item.link}
                 target="_blank"
               >
-                <Image src={item.label} />
+                <Image width={100} height={150} src={item.label} />
               </a>
             );
           })}
