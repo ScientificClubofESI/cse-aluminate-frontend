@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Logos = () => {
   return (
-    <section className="mt-10 mb-10" id="gallery">
+    <section className="mt-10 mb-10">
       <p className=" capitalize font-bold text-5xl text-center">
         for more questions about
       </p>

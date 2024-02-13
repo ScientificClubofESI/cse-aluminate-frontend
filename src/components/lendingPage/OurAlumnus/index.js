@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const OurAlumni = () => {
-    return (
-        <section>
-            
-        </section>
-    )
-}
+  return <section id="allumnus"></section>;
+};
 
-export default OurAlumni
+export default OurAlumni;

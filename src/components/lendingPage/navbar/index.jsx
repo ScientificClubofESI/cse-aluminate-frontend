@@ -25,7 +25,7 @@ const Navbar = () => {
         { id: "home", label: "Home" },
         { id: "about", label: "About" },
         { id: "services", label: "Services" },
-        { id: "gallery", label: "Gallery" },
+        { id: "allumnus", label: "Allumnus" },
                 { id: "contact", label: "Contact" },
 
      ];
