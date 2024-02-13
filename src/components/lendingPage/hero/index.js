@@ -24,12 +24,12 @@ const Hero = () => {
       </div>
 
       <div className="relative bg-white w-full rounded-[72px] border border-Secondary-50 flex items-center justify-between lg:hidden">
-        <div className="z-50 pl-[36px] py-[12px] flex items-center justify-start">
+        <div className="z-30 pl-[36px] py-[12px] flex items-center justify-start">
           <img src="searchicon.svg" alt="Search Icon" />
         </div>
-        <div className=" z-50 lg:px-[8px] lg:py-[8px]">
+        <div className=" z-30 lg:px-[8px] lg:py-[8px]">
           <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
-            <div className="z-50 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
+            <div className="z-30 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
               Find Alumni
             </div>
           </button>

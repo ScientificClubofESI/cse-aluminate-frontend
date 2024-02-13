@@ -53,7 +53,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className=" h-20 lg:  md:flex lg:text-lg items-center md:text-md justify-center top-0  w-full fixed font-Outfit font-medium">
+        <nav className="z-50 h-20  backdrop-blur-md  md:flex lg:text-lg items-center md:text-md justify-center top-0  w-full fixed font-Outfit font-medium">
             <div className="hidden container md:flex justify-between items-center">
                     <img src="./Assets/Logo.png" alt="" className="lg:h-8 md:h-6 " />
                 <ul className="flex space-x-9 md:space-x-6">
@@ -70,7 +70,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <div className="z-10 h-20 w-full items-center shadow-md bg-white flex  fixed md:hidden align-center justify-between ">
+            <div className="z-20 h-20 w-full items-center shadow-md bg-white flex  fixed md:hidden align-center justify-between ">
                 <img src="./Assets/A_logo.png" alt="" className="h-10 ml-10" />
                 <button onClick={toggleRespoList} className="mr-10">
                     {respoListVisible ? (
@@ -79,25 +79,22 @@ const Navbar = () => {
                         <FontAwesomeIcon icon={faBars} className="h-8" />
                     )}
                 </button>
-
             </div>
-
             {respoListVisible && (
-                <div>
-                    <div className="bg-slate-500 md:hidden flex fixed h-full w-full opacity-50"></div>
-                    <div className="bg-white fixed shadow-lg h-auto p-5  text-xl gap-y-8 w-full content-start top-10 grid md:hidden justify-items-center z-0 ">
-                        <div className=" rounded-3xl  mt-16  grid mr-3 content-start gap-12 justify-items-center  ">
+                <div className="">
+                    <div className="bg-slate-500   md:hidden flex fixed h-full w-full opacity-50"></div>
+                    <div className="bg-white  fixed shadow-lg h-auto p-5  text-xl gap-y-8 w-full content-start top-10 grid md:hidden justify-items-center z-0 ">
+                        <div className=" rounded-3xl   mt-16  grid mr-3 content-start gap-12 justify-items-center  ">
                             <ul className="grid  gap-y-6 justify-items-center space-y-0 content-start md:space-x-6">
                                 {sections.map(section => (
                                     <li key={section.id} className="cursor-pointer">
-                                        <ScrollLink to={section.id} smooth={true} duration={500} className={`flex items-center gap-3 ${activeSection === section.id ? "active" : ""}`}>
+                                        <ScrollLink to={section.id} onClick={toggleRespoList} smooth={true} duration={500} className={`flex items-center gap-3 ${activeSection === section.id ? "active" : ""}`}>
                                             {section.label}
                                         </ScrollLink>
                                     </li>
                                 ))}
 
                             </ul>
-
 
                             <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
                                 <div className=" text-xl font-normal text-white leading-loose tracking-tight">Find Alumni</div>
