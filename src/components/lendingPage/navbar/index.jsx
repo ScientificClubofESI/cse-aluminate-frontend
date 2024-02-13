@@ -53,7 +53,9 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="z-50 h-20  backdrop-blur-md  md:flex lg:text-lg items-center md:text-md justify-center top-0  w-full fixed font-Outfit font-medium">
+                     <div className="flex items-center justify-center">
+
+        <nav className="z-50 h-20 mt-3 rounded-3xl bg-gray-200 bg-opacity-50  backdrop-blur-md  md:flex lg:text-lg items-center md:text-md justify-center top-0  w-[97vw] fixed font-Outfit font-medium">
             <div className="hidden container md:flex justify-between items-center">
                     <img src="./Assets/Logo.png" alt="" className="lg:h-8 md:h-6 " />
                 <ul className="flex space-x-9 md:space-x-6">
@@ -80,7 +82,7 @@ const Navbar = () => {
                     )}
                 </button>
             </div>
-            {respoListVisible && (
+  {respoListVisible && (
                 <div className="">
                     <div className="bg-slate-500   md:hidden flex fixed h-full w-full opacity-50"></div>
                     <div className="bg-white  fixed shadow-lg h-auto p-5  text-xl gap-y-8 w-full content-start top-10 grid md:hidden justify-items-center z-0 ">
@@ -105,6 +107,7 @@ const Navbar = () => {
                 </div>
             )}
         </nav>
+        </div>
     );
 };
 
