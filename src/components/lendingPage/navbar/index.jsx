@@ -24,14 +24,15 @@ const Navbar = () => {
     const sections = [
         { id: "home", label: "Home" },
         { id: "about", label: "About" },
-        { id: "contact", label: "Contact" },
         { id: "services", label: "Services" },
         { id: "gallery", label: "Gallery" },
-        { id: "blog", label: "Blog" }
-    ];
+                { id: "contact", label: "Contact" },
+
+     ];
 
     useEffect(() => {
         const handleScroll = () => {
+            
             const scrollOffset = window.scrollY;
             for (const section of sections) {
                 const element = document.getElementById(section.id);
@@ -52,15 +53,13 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className=" h-20 lg:  md:flex lg:text-lg items-center md:text-md justify-center top-0 bg-white shadow-lg w-full fixed font-Outfit font-medium">
+        <nav className=" h-20 lg:  md:flex lg:text-lg items-center md:text-md justify-center top-0  w-full fixed font-Outfit font-medium">
             <div className="hidden container md:flex justify-between items-center">
-                <Link href="/" passHref>
                     <img src="./Assets/Logo.png" alt="" className="lg:h-8 md:h-6 " />
-                </Link>
                 <ul className="flex space-x-9 md:space-x-6">
                     {sections.map(section => (
                         <li key={section.id} className="cursor-pointer">
-                            <ScrollLink to={section.id} smooth={true} duration={500} className={`flex items-center gap-3 ${activeSection === section.id ? "active" : ""}`}>
+                            <   ScrollLink  to={section.id} smooth={true} duration={500} className={`flex items-center gap-3 ${activeSection === section.id ? "active" : ""}`}>
                                 {section.label}
                             </ScrollLink>
                         </li>
@@ -71,7 +70,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <div className="z-10 h-20 w-full items-center shadow-lg bg-white flex  fixed md:hidden align-center justify-between ">
+            <div className="z-10 h-20 w-full items-center shadow-md bg-white flex  fixed md:hidden align-center justify-between ">
                 <img src="./Assets/A_logo.png" alt="" className="h-10 ml-10" />
                 <button onClick={toggleRespoList} className="mr-10">
                     {respoListVisible ? (
