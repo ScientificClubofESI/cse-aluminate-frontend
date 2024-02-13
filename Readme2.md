@@ -13,3 +13,4 @@
    - Regarding routes, each folder within the "pages" folder represents a route. For example, to access the alumni section information, use the route `http://localhost:3000/allalumni/alumni`, which will render the alumni component.
    - Let's continue our collaborative efforts with motivation and gratitude. Thank you all for your hard work and dedication. Together, we can accomplish great things! 🌟 Let's keep up the momentum and support each other as we move forward with the project. 💪🏽👏🏼
 
+## 
