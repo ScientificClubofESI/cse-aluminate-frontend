@@ -1,6 +1,11 @@
 import React from "react";
 
-const Index = ({serviceslist , setserviceslist}) => {
+const Index = ({
+  serviceslist,
+  setserviceslist,
+  setselectedserviceslist,
+  setfinal_data,
+}) => {
   return (
     <ul className=" flex place-content-around gap-5 flex-wrap">
       {serviceslist.map((item) => {
@@ -13,25 +18,30 @@ const Index = ({serviceslist , setserviceslist}) => {
               value={item.label}
               checked={item.ischecked}
               onChange={() => {
-                setserviceslist(
-                  serviceslist.map((record) => {
-                    if (record.id == item.id) {
+                setserviceslist((prevServicesList) => {
+                  const updatedList = prevServicesList.map((record) => {
+                    if (record.id === item.id) {
                       return { ...record, ischecked: !record.ischecked };
                     } else {
                       return record;
                     }
-                  })
-                );
+                  });
 
-                // setselectedserviceslist(
-                //   serviceslist.filter((item) => {
-                //     if (item.ischecked == false) {
-                //       return false;
-                //     } else {
-                //       return true;
-                //     }
-                //   })
-                // );
+                  setselectedserviceslist((prevSelectedServicesList) => {
+                    const updatedSelectedList = updatedList.filter(
+                      (item) => item.ischecked
+                    );
+                    setfinal_data((prevFinalData) => {
+                      return {
+                        ...prevFinalData,
+                        services: updatedSelectedList,
+                      };
+                    });
+                    return updatedSelectedList;
+                  });
+
+                  return updatedList;
+                });
               }}
               className="text-green-500 bg-purple-200 p-2 rounded-md border-2 border-green-500"
               style={{

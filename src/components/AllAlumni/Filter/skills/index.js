@@ -1,6 +1,11 @@
 import React from "react";
 
-const Index = ({ searchedskillslist , addItemtoSelectedList , selectedskillslist , listtoappear}) => {
+const Index = ({
+  searchedskillslist,
+  addItemtoSelectedList,
+  selectedskillslist,
+  listtoappear,
+}) => {
   return (
     <div>
       <p className=" capitalize text-xl text-neutral-900">suggested skills</p>

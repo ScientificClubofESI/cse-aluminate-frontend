@@ -2,7 +2,13 @@ import React from "react";
 import Image from "next/image";
 import xiconblack from "/public/xbuttonblack.svg";
 
-const Index = ({setisfiltersection , degreelist , setdegreelist }) => {
+const Index = ({
+  setisfiltersection,
+  degreelist,
+  setdegreelist,
+  setselecteddegreelist,
+  setfinal_data,
+}) => {
   return (
     <>
       <div className=" flex place-content-between">
@@ -13,7 +19,7 @@ const Index = ({setisfiltersection , degreelist , setdegreelist }) => {
           }}
         >
           {" "}
-          <Image className="" src={xiconblack} />
+          <Image alt="xiconbutton" className="" src={xiconblack} />
         </button>
       </div>
       <hr className=" h-[1.5px] bg-Primary-800 mt-1" />
@@ -28,15 +34,32 @@ const Index = ({setisfiltersection , degreelist , setdegreelist }) => {
                 value={item.label}
                 checked={item.ischecked}
                 onChange={() => {
-                  setdegreelist(
-                    degreelist.map((record) => {
-                      if (record.id == item.id) {
+                  setdegreelist((prevDegreeList) => {
+                    const updatedList = prevDegreeList.map((record) => {
+                      if (record.id === item.id) {
                         return { ...record, ischecked: !record.ischecked };
                       } else {
                         return record;
                       }
-                    })
-                  );
+                    });
+
+                    setselecteddegreelist((prevSelectedDegreeList) => {
+                      const updatedSelectedList = updatedList.filter(
+                        (item) => item.ischecked
+                      );
+
+                      setfinal_data((prevFinalData) => {
+                        return {
+                          ...prevFinalData,
+                          degree: updatedSelectedList,
+                        };
+                      });
+
+                      return updatedSelectedList;
+                    });
+
+                    return updatedList;
+                  }); // because of the nature of setstate (asyncronus)
                 }}
               />
               {/* we can replace the input with div and display the bg color*/}

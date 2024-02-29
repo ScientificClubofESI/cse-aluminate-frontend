@@ -41,7 +41,7 @@ const Index = ({
                   }}
                   className=" cursor-pointer z-50 "
                 >
-                  <Image src={xicon} />
+                  <Image alt="xicon" src={xicon} />
                 </button>
 
                 <p>{item.label} </p>

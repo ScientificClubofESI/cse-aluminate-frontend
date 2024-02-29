@@ -2,7 +2,7 @@ import React from "react";
 import removebutton from "/public/removebutton.svg";
 import Image from "next/image";
 
-const Index = ({setisfilterbutton , setisfiltersection}) => {
+const Index = ({ setisfilterbutton, setisfiltersection }) => {
   return (
     <div className=" flex gap-5 place-content-center mt-10">
       <button
@@ -23,7 +23,7 @@ const Index = ({setisfilterbutton , setisfiltersection}) => {
       >
         {" "}
         <p className=" mr-2 text-red-500 text-2xl capitalize">remove</p>
-        <Image src={removebutton} />
+        <Image alt="removebutton" src={removebutton} />
       </button>
     </div>
   );
