@@ -1,6 +1,7 @@
 import React from "react";
 import xicon from "/public/xbutton.svg";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Index = ({
   selectedskillslist,
@@ -30,7 +31,12 @@ const Index = ({
           {/* selected skills list should be in here */}
           {selectedskillslist.map((item) => {
             return (
-              <li
+              <motion.li
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.5 }}
+                transition={{ duration: 0.2 }}
+                layoutId={`${item.id}`}
                 key={item.id}
                 className="  bg-Primary-300 text-white px-2 py-1 rounded-lg flex"
               >
@@ -45,15 +51,16 @@ const Index = ({
                 </button>
 
                 <p>{item.label} </p>
-              </li>
+              </motion.li>
             );
           })}
         </ul>
-        <input
+        <motion.input
+          layoutId="input"
           type="text"
           onFocus={() => setdivskillsbool(true)}
           // onClick={(e) => e.stopPropagation()}
-          className=" z-30 w-[500px] ml-2 px-2 py-1"
+          className=" z-30 w-[500px] ml-2 px-2 py-1 mt-2"
           placeholder="Tap to pick the skill that you’re searching for (exp : UI , UX, HTML
     , CSS , ReactJS , ...)"
           value={inputValue}

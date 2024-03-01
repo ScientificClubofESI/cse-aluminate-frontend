@@ -10,6 +10,7 @@ import Degree from "@/components/AllAlumni/Filter/degree";
 import { skillslist } from "./data/skillslist";
 import { services_list } from "./data/services_list";
 import { degree_list } from "./data/degree_list";
+import { motion } from "framer-motion";
 
 const Filter = () => {
   const [divskillsbool, setdivskillsbool] = useState(false);
@@ -64,7 +65,13 @@ const Filter = () => {
   return (
     <>
       {isfiltersection && (
-        <section className=" w-[90%] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+          className=" w-[90%] mx-auto"
+        >
           <Degree
             setisfiltersection={setisfiltersection}
             degreelist={degreelist}
@@ -82,17 +89,23 @@ const Filter = () => {
             setsearchedskillslist={setsearchedskillslist}
             skillslist={skillslist}
           />
+
           {divskillsbool && (
-            <Skills
-              searchedskillslist={searchedskillslist}
-              addItemtoSelectedList={addItemtoSelectedList}
-              selectedskillslist={selectedskillslist}
-              listtoappear={listtoappear}
-            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Skills
+                searchedskillslist={searchedskillslist}
+                addItemtoSelectedList={addItemtoSelectedList}
+                selectedskillslist={selectedskillslist}
+                listtoappear={listtoappear}
+              />
+            </motion.div>
           )}
 
-          <p className=" capitalize text-Primary-800 text-3xl">services</p>
-          <hr className=" h-[1.5px] bg-Primary-800 mt-1" />
           <Services
             serviceslist={serviceslist}
             setserviceslist={setserviceslist}
@@ -112,16 +125,31 @@ const Filter = () => {
             setdegreelist={setdegreelist}
             // using context api or moving data states to their main component will be more appropriate
           />
-        </section>
+        </motion.div>
       )}
       {!isfiltersection && (
-        <Filtersectionbutton setisfiltersection={setisfiltersection} />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Filtersectionbutton setisfiltersection={setisfiltersection} />
+        </motion.div>
       )}
       {isfilterbutton && !isfiltersection && (
-        <Changeremove
-          setisfilterbutton={setisfilterbutton}
-          setisfiltersection={setisfiltersection}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+        >
+          {" "}
+          <Changeremove
+            setisfilterbutton={setisfilterbutton}
+            setisfiltersection={setisfiltersection}
+          />
+        </motion.div>
       )}
     </>
   );
