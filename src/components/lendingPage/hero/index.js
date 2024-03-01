@@ -35,7 +35,11 @@ const Hero = () => {
       <div className='bg-white w-full rounded-[72px] border border-Secondary-50 items-center justify-between hidden  lg:flex'>
         <div className='pl-[36px] py-[12px] flex items-center justify-start'>
           <img src='searchicon.svg' alt='Search Icon' />
-          <div className='text-neutral-300 text-neutral text-xs lg:text-lg'>Search</div>
+          <input
+            type='text'
+            className='ml-[8px] outline-none border-none text-neutral-300 focus:text-neutral-600 text-neutral text-xs lg:text-lg'
+            placeholder='Search'
+          />
         </div>
 
         <div className='lg:px-[8px] lg:py-[8px]'>

@@ -9,10 +9,10 @@ const ALumni = () => {
     return (
         <>
             <AlumniInfo />
-            <Degree />
+            {/* <Degree />
             <Skills />
             <Services />
-            <Programs />
+            <Programs /> */}
         </>
 
     )
