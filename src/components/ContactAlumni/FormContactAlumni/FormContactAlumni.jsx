@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const FormContactAlumni = ({ handleSubmit }) => {
   const services = [
@@ -14,14 +16,17 @@ const FormContactAlumni = ({ handleSubmit }) => {
     { id: "service3", value: "Networking", label: "Networking" },
   ];
   return (
-    <div className="grid gap-8 p-5 justify-items-center content-center">
+    <div className="grid p-5 w-[50vw] justify-items-center content-center">
       <p className="text-2xl font-medium text-Primary-600">
         Please fill this form
       </p>
-      <form onSubmit={handleSubmit} className="mt-8">
-        <div className="grid gap-4">
-          <div className="flex gap-4">
-            <div className="grid">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 grid justify-items-center content-center  "
+      >
+        <div className="grid gap-4   ">
+          <div className="flex gap-4 ">
+            <div className="grid w-1/2">
               <label htmlFor="name" className="m-2 ">
                 Full name*
               </label>
@@ -30,10 +35,11 @@ const FormContactAlumni = ({ handleSubmit }) => {
                 id="name"
                 name="name"
                 placeholder="Your full name"
-                className="py-2 px-3  radius-5 font-light rounded-lg"
+                className="py-2 px-3 w-full radius-5 font-light rounded-lg"
+                required
               />
             </div>
-            <div className="grid">
+            <div className="grid w-1/2">
               <label htmlFor="email" className="m-2">
                 Email Address*
               </label>
@@ -43,17 +49,18 @@ const FormContactAlumni = ({ handleSubmit }) => {
                 name="email"
                 placeholder="example@gmail.com"
                 className="px-3 py-2  font-light rounded-lg"
+                required
               />
             </div>
           </div>
-          <div className="grid">
+          <div className="grid ">
             <label htmlFor="object" className="m-2">
               Object*
             </label>
             <input
               type="text"
               id="object"
-              className="px-3 py-2 rounded-lg font-light"
+              className="px-3 w-full py-2 rounded-lg font-light"
               placeholder=" Define breifly your object "
             />
           </div>
@@ -91,6 +98,15 @@ const FormContactAlumni = ({ handleSubmit }) => {
               className="pb-[20vh] pt-2 px-3 rounded-lg font-light flex items-start justify-start"
             />
           </div>
+        </div>
+        <div className="mt-6">
+          <button
+            type="submit"
+            className="bg-Primary-600 py-3 px-8 flex gap-3 items-center text-white rounded-3xl"
+          >
+            Send Message
+            <FontAwesomeIcon icon={faPaperPlane} color="white" />{" "}
+          </button>
         </div>
       </form>
     </div>

@@ -25,23 +25,34 @@ const AlumniInfoContact = () => {
   };
 
   return (
-    <div className="w-[30%] gap-8 hidden lg:grid m-5">
-      <p>Contact Alumni</p>
-      <img src={alumniInfo.image} alt={alumniInfo.name} className="h-60" />
+    <div className="w-[28%] gap-5 hidden lg:grid mx-8 bg-Primary-200/30 p-5">
+      <div className="w-full grid gap-5 justify-items-center ">
+        {" "}
+        <p className="text-2xl text-Secondary-700 font-semibold">
+          Contact Alumni
+        </p>
+        <img src={alumniInfo.image} alt={alumniInfo.name} className="h-60" />
+      </div>
+
       <div className="grid gap-2">
         {" "}
         <p className=" font-medium text-xl">{alumniInfo.name}</p>
         <p className=" font-light text-Primary-600">{alumniInfo.position}</p>
-        <div className="location flex items-center gap-3 ">
-          <FontAwesomeIcon icon={faLocationDot} className="text-gray-500" />
-          <p className="text-gray-500">{alumniInfo.location}</p>
+        <div className="location flex items-center gap-2 ">
+          <FontAwesomeIcon
+            icon={faLocationDot}
+            className="text-gray-500 opacity-70 h-4"
+          />
+          <p className="text-gray-500 text-sm opacity-70">
+            {alumniInfo.location}
+          </p>
         </div>
       </div>
 
       <div className="Services grid gap-2">
-        <p className=" text-Secondary-700 text-xl">Services</p>
+        <p className=" text-Secondary-700 text-md ">Services</p>
         <hr className="border-Secondary-700 border-1" />{" "}
-        <div className="serv flex gap-4 flex-wrap">
+        <div className="serv flex gap-4 flex-wrap text-sm">
           {alumniInfo.services.map((service, index) => (
             <div
               key={index}
@@ -57,21 +68,21 @@ const AlumniInfoContact = () => {
       <div className="contact grid gap-3">
         <div className="flex items-center gap-3">
           {" "}
-          <p className="text-Primary-800 underline text-xl font-extralight">
+          <p className="text-Primary-800 underline  font-extralight">
             LinkedIn:
           </p>
-          <a href={alumniInfo.linkedin} className="text-Primary-800 text-xl ">
+          <a href={alumniInfo.linkedin} className="text-Primary-800 ">
             {alumniInfo.linkedinName}
           </a>
         </div>
         <div className="flex items-center gap-3">
           {" "}
-          <p className="text-Secondary-800 text-xl  underline font-extralight">
+          <p className="text-Secondary-800   underline font-extralight">
             Email:
           </p>
           <a
             href={`mailto:${alumniInfo.email}`}
-            className="text-xl  text-Secondary-800"
+            className="  text-Secondary-800"
           >
             {alumniInfo.email}
           </a>

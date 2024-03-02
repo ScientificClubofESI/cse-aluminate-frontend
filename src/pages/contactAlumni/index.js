@@ -4,10 +4,10 @@ import React from "react";
 
 const ContactAlumni = () => {
   return (
-    <>
+    <div className="flex">
       <AlumniInfoContact />
       <FormContactAlumni />
-    </>
+    </div>
   );
 };
 
