@@ -25,7 +25,7 @@ const AlumniInfoContact = () => {
   };
 
   return (
-    <div className="w-[45%] gap-8 hidden lg:grid m-5">
+    <div className="w-[30%] gap-8 hidden lg:grid m-5">
       <p>Contact Alumni</p>
       <img src={alumniInfo.image} alt={alumniInfo.name} className="h-60" />
       <div className="grid gap-2">
