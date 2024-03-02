@@ -16,8 +16,8 @@ const FormContactAlumni = ({ handleSubmit }) => {
     { id: "service3", value: "Networking", label: "Networking" },
   ];
   return (
-    <div className="grid p-5 w-[50vw] justify-items-center content-center">
-      <p className="text-2xl font-medium text-Primary-600">
+    <div className="grid p-5 w-screen lg:w-[70vw] justify-items-center content-center">
+      <p className="text-2xl  font-medium text-Primary-600">
         Please fill this form
       </p>
       <form
@@ -64,14 +64,11 @@ const FormContactAlumni = ({ handleSubmit }) => {
               placeholder=" Define breifly your object "
             />
           </div>
-          <label className="m-2 mt-0">Choose a service*</label>
+          <label className="m-2 mt-0 ">Choose a service*</label>
 
-          <div className="flex gap-5">
+          <div className="flex gap-5  flex-wrap">
             {services.map((service) => (
-              <div
-                key={service.id}
-                className="gap-1 flex white-space:nowrap items-center"
-              >
+              <div key={service.id} className="gap-1 flex items-center ">
                 <input
                   type="radio"
                   id={service.id}
