@@ -46,12 +46,18 @@ const Hero = () => {
         connections and embark on exciting journeys of collaboration.
       </p>
 
-      <div className="bg-white w-full rounded-[72px] border border-Secondary-50 flex items-center justify-between hidden lg:block lg:flex">
-        <div className="pl-[36px] py-[12px] flex items-center justify-start">
-          <img src="searchicon.svg" alt="Search Icon" />
-          <div className="text-neutral-300 text-neutral text-xs lg:text-lg">
-            Search
-          </div>
+
+      <p className='font-light text-base text-center lg:text-left'>Welcome to Aluminate, where alumni come together to reignite old connections and embark on exciting journeys of collaboration.</p>
+
+      <div className='bg-white w-full rounded-[72px] border border-Secondary-50 items-center justify-between hidden  lg:flex'>
+        <div className='pl-[36px] py-[12px] flex items-center justify-start'>
+          <img src='searchicon.svg' alt='Search Icon' />
+          <input
+            type='text'
+            className='ml-[8px] outline-none border-none text-neutral-300 focus:text-neutral-600 text-neutral text-xs lg:text-lg'
+            placeholder='Search'
+          />
+
         </div>
 
         <div className="lg:px-[8px] lg:py-[8px]">
