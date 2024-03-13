@@ -34,7 +34,7 @@ const ContactUs = () => {
     },
   ];
   return (
-    <div className=" relative ">
+    <div className=" relative " id="contact">
       <section className=" flex flex-col place-content-between xl:gap-10 w-full mx-auto absolute lg:mt-10 mt-24">
         <div className=" flex flex-col items-center">
           <p className="  uppercase font-bold xl:text-5xl text-4xl">

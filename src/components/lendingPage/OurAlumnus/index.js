@@ -1,3 +1,4 @@
+
 // // import React from 'react'
 
 // // const OurAlumni = () => {
@@ -76,7 +77,7 @@ import Carousel from 'react-material-ui-carousel'
 const OurAlumnus = () => {
     return (
         <div className='w-[80%] mx-auto'>
-            <Carousel  className='mx-auto bg-white rounded-md items-center flex flex-col justify-center p-10'>
+            <Carousel className='mx-auto bg-white rounded-md items-center flex flex-col justify-center p-10'>
                 <div className='w-[300px]  '>
                     <Image className='w-full h-full object-cover' src={"/alumni3.svg"} width={100} height={100} />
                     <h1 className='text-neutral-900 font-bold'>
