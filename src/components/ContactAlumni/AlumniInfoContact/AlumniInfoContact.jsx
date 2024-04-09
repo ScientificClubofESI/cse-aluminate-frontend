@@ -4,6 +4,7 @@ import {
   faCircleCheck,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 const AlumniInfoContact = () => {
   const alumniInfo = {
@@ -21,7 +22,7 @@ const AlumniInfoContact = () => {
     linkedin: "https://www.linkedin.com/in/mohamed-bengharbia",
     linkedinName: "Mohamed Bengharbia",
     email: "im_engharbia@esi.dz",
-    image: "./Assets/Alumni.png",
+    image: "/Assets/Alumni.png",
   };
 
   return (
@@ -31,7 +32,7 @@ const AlumniInfoContact = () => {
         <p className="text-2xl text-Secondary-700 font-semibold">
           Contact Alumni
         </p>
-        <img src={alumniInfo.image} alt={alumniInfo.name} className="h-60" />
+        <Image src={alumniInfo.image} width={300} height={60} alt={alumniInfo.name} className="h-60 object-cover" />
       </div>
 
       <div className="grid gap-2">

@@ -14,7 +14,14 @@ import Logos from "@/components/lendingPage/Logos";
 export default function Home() {
   return (
     <>
-      <ContactAlumni />
+      <Navbar />
+      <Hero />
+      <About />
+      <OurAlumni />
+      <PopularServices />
+      <PopularSkills />
+      <Logos />
+      <ContactUs />
     </>
   );
 }

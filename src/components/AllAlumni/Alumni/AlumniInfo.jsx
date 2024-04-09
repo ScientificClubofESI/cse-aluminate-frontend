@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const AlumniInfo = () => {
     return (
-        <section className='px-[5%] md:px[8%] py-10 items-center lg:items-start space-x-4 lg:space-y-3 grid grid-cols-2 lg:grid-cols-3 grid-rows-3 md:gap-x-8'>
+        <section className='mt-20 px-[5%] md:px[8%] py-10 items-center lg:items-start space-x-4 lg:space-y-3 grid grid-cols-2 lg:grid-cols-3 grid-rows-3 md:gap-x-8'>
             <div className='flex col-span-1 row-span-2 lg:row-span-3 lg:col-span-1 lg:justify-between lg:items-center mb-6'>
-                <Image src="/allumniimg.png" alt="Alumni Image"  width={70} layout="responsive" height={80} className='rounded-2xl md:rounded-3xl'/>
+                <Image src="/allumniimg.png" alt="Alumni Image" width={70} layout="responsive" height={80} className='rounded-2xl md:rounded-3xl' />
             </div>
 
             <div className='flex flex-col col-span-1 row-span-1 relative top-0'>
@@ -37,10 +38,11 @@ const AlumniInfo = () => {
                 </div>
 
                 <div className='flex justify-center lg:items-center'>
-                    <button className='bg-Primary-600 flex flex-row items-center gap-2 py-2 px-4 rounded-2xl '>
+                    <Link href={"/contactAlumni"}> <button className='bg-Primary-600 flex flex-row items-center gap-2 py-2 px-4 rounded-2xl '>
                         <p className='text-center font-normal text-white text-xs sm:text-sm md:text-xl'>Contact Alumni</p>
                         <img src="/sendicon.svg" alt="send icon" />
                     </button>
+                    </Link>
                 </div>
             </div>
 

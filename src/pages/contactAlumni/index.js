@@ -4,7 +4,7 @@ import React from "react";
 
 const ContactAlumni = () => {
   return (
-    <div className="flex">
+    <div className="flex mt-[200px]">
       <AlumniInfoContact />
       <FormContactAlumni />
     </div>

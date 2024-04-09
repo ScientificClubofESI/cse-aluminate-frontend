@@ -7,13 +7,16 @@ import React from 'react'
 
 const ALumni = () => {
     return (
-        <>
+        <section >
             <AlumniInfo />
+            <Degree degree={"Student"} />
+            <Degree />
+            <Services />
             {/* <Degree />
             <Skills />
             <Services />
             <Programs /> */}
-        </>
+        </section>
 
     )
 }
