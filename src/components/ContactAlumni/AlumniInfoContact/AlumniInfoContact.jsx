@@ -5,24 +5,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
-const AlumniInfoContact = () => {
-  const alumniInfo = {
-    name: "Mohamed Amine Bengharbia",
-    position: "Web Developer at Company X",
-    location: "Paris, France",
-    services: [
-      "Workshops",
-      "Training Sessions",
-      "Consulting",
-      "Networking Events",
-      "Networking Events",
-      "Networking Events",
-    ],
-    linkedin: "https://www.linkedin.com/in/mohamed-bengharbia",
-    linkedinName: "Mohamed Bengharbia",
-    email: "im_engharbia@esi.dz",
-    image: "./Assets/Alumni.png",
-  };
+const AlumniInfoContact = ({ alumniInfo }) => {
 
   return (
     <div className="w-[28%] gap-5 hidden lg:grid mx-8 bg-Primary-200/30 p-5">
@@ -31,13 +14,13 @@ const AlumniInfoContact = () => {
         <p className="text-2xl text-Secondary-700 font-semibold">
           Contact Alumni
         </p>
-        <img src={alumniInfo.image} alt={alumniInfo.name} className="h-60" />
+        <img src={alumniInfo.imageUrl} alt={alumniInfo.fullName} className="h-60" />
       </div>
 
       <div className="grid gap-2">
         {" "}
-        <p className=" font-medium text-xl">{alumniInfo.name}</p>
-        <p className=" font-light text-Primary-600">{alumniInfo.position}</p>
+        <p className=" font-medium text-xl">{alumniInfo.fullName}</p>
+        <p className=" font-light text-Primary-600">{alumniInfo.currentPosition}</p>
         <div className="location flex items-center gap-2 ">
           <FontAwesomeIcon
             icon={faLocationDot}
@@ -72,7 +55,7 @@ const AlumniInfoContact = () => {
             LinkedIn:
           </p>
           <a href={alumniInfo.linkedin} className="text-Primary-800 ">
-            {alumniInfo.linkedinName}
+            {alumniInfo.fullName}
           </a>
         </div>
         <div className="flex items-center gap-3">

@@ -19,7 +19,7 @@ const Skills = ({ skill }) => {
         {" "}
         {/**div Data Science*/}
         <div className="  lg:items-start items-center flex flex-col">
-          <div class="pb-2">
+          <div className="pb-2">
             <h5
               className="font-semibold leading-25.2 tracking-1 mb-0 pb-0"
               style={{ fontSize: "20px" }}

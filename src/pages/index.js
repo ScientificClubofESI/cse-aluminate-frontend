@@ -12,9 +12,17 @@ import ContactAlumni from "./contactAlumni";
 import Logos from "@/components/lendingPage/Logos";
 
 export default function Home() {
-  return (
-    <>
-      <ContactAlumni />
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            <Hero />
+            <About />
+            <Logos />
+            <PopularServices />
+            <PopularSkills />
+            <OurAlumni />
+            <ContactUs />
+            {/* <ContactAlumni /> */}
+        </>
+    );
 }
