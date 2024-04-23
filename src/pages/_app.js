@@ -1,3 +1,4 @@
+import Navbar from "@/components/lendingPage/navbar";
 import "@/styles/globals.css";
 import { Outfit } from "next/font/google";
 const outfit = Outfit({
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }) {
           font-family: ${outfit.style.fontFamily};
         }
       `}</style>
+      <Navbar />
       <Component {...pageProps} />
     </>
   );

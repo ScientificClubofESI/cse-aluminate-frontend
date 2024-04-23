@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -28,11 +29,13 @@ const Hero = () => {
           <img src="searchicon.svg" alt="Search Icon" />
         </div>
         <div className=" z-30 lg:px-[8px] lg:py-[8px]">
-          <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
-            <div className="z-30 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
-              Find Alumni
-            </div>
-          </button>
+          <Link href={"/allalumni"}>
+            <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
+              <div className="z-30 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
+                Find Alumni
+              </div>
+            </button>
+          </Link>
         </div>
 
         <input
