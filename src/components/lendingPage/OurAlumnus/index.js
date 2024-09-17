@@ -16,6 +16,7 @@ export default function OurAlumni() {
                 try {
                     const response = await axios.get("v1/alumni");
                     const alumniData = response.data.content;
+                    console.log(alumniData);
                     setAlumni(alumniData);
 
                 } catch (error) {
@@ -50,8 +51,8 @@ export default function OurAlumni() {
             }
         }
 
-            fetchAlumni();
-        }, []);
+        fetchAlumni();
+    }, []);
 
     function SampleNextArrow(props) {
         const { style, onClick } = props;

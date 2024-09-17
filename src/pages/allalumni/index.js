@@ -8,8 +8,14 @@ import React from 'react'
 const AllALumni = () => {
     return (
         <>
-            <SearchAlumni />
-            <Filter />
+            <div className='  justify-center items-center gap-2 flex mt-[300px]'>
+                <div >
+                    <SearchAlumni />
+                </div>
+                <div className=''>
+                    <Filter />
+                </div>
+            </div>
             <AllAlumniCards />
             <Pagination />
         </>

@@ -21,6 +21,7 @@ const ALumni = () => {
                 if (process.env.NEXT_PUBLIC_API_URL) {
                     try {
                         const response = await axios.get(`v1/alumni/${id}`);
+                        console.log("response", response);
                         setAlumniInfo({ ...response.data.content, services: ["Workshops", "Training Sessions", "Consulting", "Networking Events"] });
                     } catch (error) {
                         console.error(error);
@@ -53,7 +54,7 @@ const ALumni = () => {
     return (
         <section >
             <AlumniInfo id={alumniInfo.id} fullName={alumniInfo.fullName} imageUrl={alumniInfo.imageUrl} currentPosition={alumniInfo.currentPosition} location={alumniInfo.location} description={alumniInfo.description} email={alumniInfo.email} />
-            <Degree degree={"Student"} />
+            {/* <Degree degree={"Student"} /> */}
             <Services />
             {/* <Degree />
             <Skills />

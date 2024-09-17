@@ -1,12 +1,12 @@
 import React from "react";
 
-const Index = ({setisfiltersection}) => {
+const Index = ({ setisfiltersection }) => {
   return (
     <div className=" flex place-content-center">
       <button className=" " onClick={() => setisfiltersection(true)}>
         <svg
-          width="70"
-          height="68"
+          width="60"
+          height="60"
           viewBox="0 0 70 68"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
