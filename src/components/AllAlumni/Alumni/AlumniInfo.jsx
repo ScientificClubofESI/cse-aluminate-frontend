@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const AlumniInfo = ({ id, fullName, imageUrl, currentPosition, location, description, email }) => {
     return (
-        <section className='mt-[200px] w-[80%] mx-auto'>
-            <section >
+        <section className='mt-[200px] mb-[100px] gap-3 w-[80%] mx-auto flex flex-col lg:flex-row'>
+            <section className='lg:w-[70%]'>
                 <header className='flex gap-2 items-center  '>
 
                     <Image src={imageUrl} alt="Alumni Image" width={160} height={160} className=' rounded-3xl  w-[160px] h-[160px]' />
@@ -55,10 +55,45 @@ const AlumniInfo = ({ id, fullName, imageUrl, currentPosition, location, descrip
                     </div>
                 </div>
             </section>
-            <section>
+            <section className='flex-1 border border-1 border-neutral-300 p-5 rounded-lg'>
+                <section>
+                    <h1 className='text-Primary-700 border-b-2 border-b-Primary-700  p-1 font-Outfit font-bold text-lg'>
+                        Origin-Residence
+                    </h1>
+                    <div className='p-3'>
+                        <div>
+                            <h2 className='font-[500] text-md text-neutral-700'>Birth City</h2>
+                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>Algiers,Algeria</p>
+                        </div>
+                        <div  >
+                            <h2 className='font-[500] text-md text-neutral-700'>Curent Location</h2>
+                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>Sillicon Valey, California, USA</p>
+                        </div>
+                    </div>
 
+                </section>
+                <section>
+                    <h1 className='text-Primary-700 border-b-2 border-b-Primary-700  p-1 font-Outfit font-bold text-lg'>
+                        Education
+                    </h1>
+                    <div className='p-3'>
+                        <div>
+                            <h2 className='font-[500] text-md text-neutral-700'>Promotion</h2>
+                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>2016</p>
+                        </div>
+                        <div  >
+                            <h2 className='font-[500] text-md text-neutral-700'>School/University Of Study</h2>
+                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>ESI : Ecole Nationale Superieur d’Informatique</p>
+                        </div>
+                        <div  >
+                            <h2 className='font-[500] text-md text-neutral-700'>Last Academic Diploma</h2>
+                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>Master's Degree </p>
+                        </div>
+                    </div>
+
+                </section>
             </section>
-        </section>
+        </section >
     )
 }
 

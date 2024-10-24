@@ -28,15 +28,18 @@ const Hero = () => {
         <div className="z-30 pl-[36px] py-[12px] flex items-center justify-start">
           <img src="searchicon.svg" alt="Search Icon" />
         </div>
-        <div className=" z-30 lg:px-[8px] lg:py-[8px]">
-          <Link href={"/allalumni"}>
+        <Link
+          className="z-30" href={"/allalumni"}>
+
+          <div className=" z-30 lg:px-[8px] lg:py-[8px]">
             <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
               <div className="z-30 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
                 Find Alumni
               </div>
             </button>
-          </Link>
-        </div>
+          </div>
+        </Link>
+
 
         <input
           placeholder="search"
@@ -49,9 +52,6 @@ const Hero = () => {
         connections and embark on exciting journeys of collaboration.
       </p>
 
-
-      <p className='font-light text-base text-center lg:text-left'>Welcome to Aluminate, where alumni come together to reignite old connections and embark on exciting journeys of collaboration.</p>
-
       <div className='bg-white w-full rounded-[72px] border border-Secondary-50 items-center justify-between hidden  lg:flex'>
         <div className='pl-[36px] py-[12px] flex items-center justify-start'>
           <img src='searchicon.svg' alt='Search Icon' />
@@ -62,16 +62,18 @@ const Hero = () => {
           />
 
         </div>
+        <Link href={"/allalumni"}>
+          <div className="lg:px-[8px] lg:py-[8px]">
+            <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
+              <div className="text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
+                Find Alumni
+              </div>
+            </button>
+          </div>
+        </Link>
 
-        <div className="lg:px-[8px] lg:py-[8px]">
-          <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
-            <div className="text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
-              Find Alumni
-            </div>
-          </button>
-        </div>
       </div>
-    </section>
+    </section >
   );
 };
 

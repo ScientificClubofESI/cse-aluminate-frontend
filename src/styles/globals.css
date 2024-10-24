@@ -32,6 +32,10 @@
   max-width: 1000px;
   margin: auto auto auto;
 }
+.nav-shadow{
+
+  box-shadow: 0px 0px 50px 0px #DFE1E280;
+}
 /* .slick-arrow {
   z-index: 999;
   width: 40px;
