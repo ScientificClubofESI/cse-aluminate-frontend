@@ -20,6 +20,21 @@
   .shadow-2{
     box-shadow: 0px 0px 50px 0px rgba(223, 225, 226, 0.50);
   }
+  @layer components{
+    .custom-pagination .MuiPaginationItem-root {
+        /* Tailwind utility classes */
+      }
+    
+      .custom-pagination .MuiPaginationItem-root.Mui-selected {
+        @apply bg-Secondary-300 text-white;
+        /* Selected state */
+      }
+    
+      .custom-pagination .MuiPaginationItem-root:hover {
+        @apply bg-Secondary-300 text-white;
+        /* Hover state */
+      }
+  }
   
 }
 .slick-slide {

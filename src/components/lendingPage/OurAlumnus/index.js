@@ -5,19 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from '../../../utils/axios'
+import { useAlumni } from "@/utils/fetchData";
 
 export default function OurAlumni() {
     const [alumni, setAlumni] = useState([{}, {}, {}]);
+    const { data, isLoading, isError, error } = useAlumni();
 
     useEffect(() => {
         // fetch alumni data
         const fetchAlumni = async () => {
             if (process.env.NEXT_PUBLIC_API_URL) {
                 try {
-                    const response = await axios.get("v1/alumni");
-                    const alumniData = response.data.content;
-                    console.log(alumniData);
-                    setAlumni(alumniData);
+                    // const response = await axios.get("v1/alumni");
+                    // const alumniData = response.data.content;
+                    // console.log(alumniData);
+                    // setAlumni(alumniData);
 
                 } catch (error) {
                     console.error("Error fetching alumni data: ", error);
@@ -60,7 +62,7 @@ export default function OurAlumni() {
         return (
             <div className="max-w-max hidden lg:block absolute cursor-pointer -right-12 top-[50%] bottom-[50%]  ">
                 <Image
-                    src={"/arrow-circle-right.svg"}
+                    src={"arrow-circle-right.svg"}
                     alt="right-arrow"
                     width={48}
                     height={48}
@@ -128,26 +130,34 @@ export default function OurAlumni() {
     };
 
     return (
-        <div className="slider-container  my-10  max-w-max mx-auto">
-            <Slider className=""  {...settings}>
-                {
-                    alumni.map(alumnus => {
-                        return (
-                            <div key={alumnus.fullName} className='bg-white p-[16px] border-[2px] rounded-[24px] border-neutral-100'>
-                                <Image className='w-full h-full rounded-[24px] object-cover' src={alumnus.imageUrl} alt="" width={100} height={100} />
-                                <h1 className='text-neutral-900 text-[24px] font-bold'>
-                                    {alumnus.fullName}
-                                </h1>
-                                <h3 className='text-Primary-600 text-[18px] font-light'>{alumnus.currentPosition}</h3>
-                                <p className='text-neutral-600 font-extralight text-[16px] '>{alumnus.description}</p>
-                                <Link href={`/allalumni/alumni/${alumnus.id}`}>
-                                    <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto">See More</h4>
-                                </Link>
-                            </div>
-                        )
-                    })
-                }
-            </Slider>
-        </div>
+        <section >
+            <h1
+                className="text-center p-12 font-bold font-12"
+                style={{ fontSize: "48px" }}
+            >
+                Our Alumnus
+            </h1>
+            <div className="slider-container  my-10  max-w-max mx-auto">
+                <Slider className=""  {...settings}>
+                    {
+                        data?.content.map(alumnus => {
+                            return (
+                                <div key={alumnus.id} className='bg-white p-[16px] border-[2px] rounded-[24px] border-neutral-100'>
+                                    <Image className='w-full h-[350px] object-cover my-3  rounded-[24px] ' src={alumnus.imageUrl} alt="" width={100} height={100} />
+                                    <h1 className='text-neutral-900 text-[24px] font-bold'>
+                                        {alumnus.fullName}
+                                    </h1>
+                                    <h3 className='text-Primary-600 text-[18px] font-light'>{alumnus.currentPosition}</h3>
+                                    <p className='text-neutral-600 font-extralight text-[16px] '>{alumnus.description}</p>
+                                    <Link href={`/allalumni/alumni/${alumnus.id}`}>
+                                        <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto">See More</h4>
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }
+                </Slider>
+            </div>
+        </section>
     );
 }

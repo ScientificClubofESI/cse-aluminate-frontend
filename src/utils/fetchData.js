@@ -1,10 +1,19 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchProducts } from "./API"
+import { getAllAlumni, getAlumniById } from "./API"
 
 
-export const useProducts = () => {
+export const useAlumni = (page) => {
     return useQuery({
-        queryKey: ['products'],
-        queryFn: fetchProducts
+        queryKey: ['allAlumni'],
+        queryFn: () => getAllAlumni(page)
     })
 }
+
+export const useAlumniId = (id) => {
+    return useQuery({
+        queryKey: ['allAlumni', id],
+        queryFn: () => getAlumniById(id)
+    })
+}
+
+

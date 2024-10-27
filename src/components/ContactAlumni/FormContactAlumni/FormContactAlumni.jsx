@@ -86,19 +86,19 @@ const FormContactAlumni = ({ destination, services }) => {
 
                     <div className="flex gap-5  flex-wrap">
                         {services.map((service) => (
-                            <div key={service} className="gap-1 flex items-center ">
+                            <div key={service.id} className="gap-1 flex items-center ">
                                 <input
                                     type="radio"
-                                    id={service}
+                                    id={service.id}
                                     name="service"
-                                    value={service}
+                                    value={service.name}
                                     className="accent-Secondary-600"
                                 />
                                 <label
-                                    htmlFor={service}
+                                    htmlFor={service.id}
                                     className="flex-wrap font-light whitespace-nowrap"
                                 >
-                                    {service}
+                                    {service.name}
                                 </label>
                             </div>
                         ))}

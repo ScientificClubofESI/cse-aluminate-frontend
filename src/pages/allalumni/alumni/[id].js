@@ -7,55 +7,28 @@ import Services from '@/components/AllAlumni/Alumni/servicess'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import axios from '../../../utils/axios'
+import { useAlumniId } from '@/utils/fetchData'
+import Loading from '@/components/LOADING/Loading'
+import ErrorLayout from '@/components/ERROR/Error'
 
 const ALumni = () => {
     const router = useRouter();
     const { id } = router.query;
-
+    const { data, isLoading, isError, error, isSuccess } = useAlumniId(id);
     const [alumniInfo, setAlumniInfo] = useState({ services: [] });
-
-    useEffect(() => {
-        if (id) {
-            // fetch data from the backend
-            const getAlumniInfo = async () => {
-                if (process.env.NEXT_PUBLIC_API_URL) {
-                    try {
-                        const response = await axios.get(`v1/alumni/${id}`);
-                        console.log("response", response);
-                        setAlumniInfo({ ...response.data.content, services: ["Workshops", "Training Sessions", "Consulting", "Networking Events"] });
-                    } catch (error) {
-                        console.error(error);
-                    }
-                };
-            };
-
-            getAlumniInfo();
-        } else {
-            // use mock data
-            setAlumniInfo({
-                fullName: "Mohamed Amine Bengharbia",
-                currentPosition: "Web Developer at Company X",
-                imageUrl: "/alumni3.svg",
-                email: "hello@world.com",
-                location: "Paris, France",
-                description: "I am a full-stack web developer with 5 years of experience in the field. I have worked with multiple companies and startups in the past and I am currently working as a freelancer.",
-                services: [
-                    "Workshops",
-                    "Training Sessions",
-                    "Consulting",
-                    "Networking Events",
-                ],
-                linkedin: "https://www.linkedin.com/in/mohamed-bengharbia",
-            });
-        }
-    }, [id]);
-
+    if (isLoading) {
+        <Loading />
+    }
+    if (isError) {
+        return <ErrorLayout />
+    }
+    console.log({ data });
 
     return (
         <section >
-            <AlumniInfo id={alumniInfo.id} fullName={alumniInfo.fullName} imageUrl={alumniInfo.imageUrl} currentPosition={alumniInfo.currentPosition} location={alumniInfo.location} description={alumniInfo.description} email={alumniInfo.email} />
+            <AlumniInfo key={data?.content.id} {...data?.content} />
             {/* <Degree degree={"Student"} /> */}
-            <Services />
+            <Services services={data?.content.services} />
             {/* <Degree />
             <Skills />
             <Services />

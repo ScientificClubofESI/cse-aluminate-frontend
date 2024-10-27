@@ -15,7 +15,7 @@ export default function Home() {
             <About />
             <OurAlumni />
             <PopularServices />
-            <PopularSkills />
+            {/* <PopularSkills /> */}
             <Logos />
             <ContactUs />
         </>

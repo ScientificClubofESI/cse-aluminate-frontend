@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 
 const AlumniInfoContact = ({ alumniInfo }) => {
-
+  console.log({ alumniInfo })
   return (
     <div className="w-[28%] gap-5 hidden lg:grid mx-8 bg-Primary-200/30 p-5">
       <div className="w-full grid gap-5 justify-items-center ">
@@ -15,7 +15,7 @@ const AlumniInfoContact = ({ alumniInfo }) => {
         <p className="text-2xl text-Secondary-700 font-semibold">
           Contact Alumni
         </p>
-        <img src={alumniInfo.imageUrl} alt={alumniInfo.fullName} width={300} height={60} className="h-60 object-cover" />
+        <Image src={alumniInfo.imageUrl} alt={alumniInfo.fullName} width={300} height={60} className="h-60 object-cover" />
       </div>
 
       <div className="grid gap-2">
@@ -28,7 +28,7 @@ const AlumniInfoContact = ({ alumniInfo }) => {
             className="text-gray-500 opacity-70 h-4"
           />
           <p className="text-gray-500 text-sm opacity-70">
-            {alumniInfo.location}
+            {alumniInfo.currentLocation}
           </p>
         </div>
       </div>
@@ -43,7 +43,7 @@ const AlumniInfoContact = ({ alumniInfo }) => {
               className="flex  gap-1 items-center justify-center"
             >
               <FontAwesomeIcon icon={faCircleCheck} color="#3FD8BF" />
-              <p className="font-light">{service}</p>
+              <p className="font-light">{service.name}</p>
             </div>
           ))}
         </div>
