@@ -37,7 +37,7 @@ const AlumniInfoContact = ({ alumniInfo }) => {
         <p className=" text-Secondary-700 text-md ">Services</p>
         <hr className="border-Secondary-700 border-1" />{" "}
         <div className="serv flex gap-4 flex-wrap text-sm">
-          {alumniInfo.services.map((service, index) => (
+          {alumniInfo.services?.map((service, index) => (
             <div
               key={index}
               className="flex  gap-1 items-center justify-center"

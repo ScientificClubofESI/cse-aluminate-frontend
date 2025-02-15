@@ -85,7 +85,7 @@ const FormContactAlumni = ({ destination, services }) => {
                     <label className="m-2 mt-0 ">Choose a service*</label>
 
                     <div className="flex gap-5  flex-wrap">
-                        {services.map((service) => (
+                        {services?.map((service) => (
                             <div key={service.id} className="gap-1 flex items-center ">
                                 <input
                                     type="radio"
