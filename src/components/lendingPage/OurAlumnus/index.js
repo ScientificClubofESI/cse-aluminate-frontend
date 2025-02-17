@@ -31,6 +31,7 @@ export default function OurAlumni() {
                     infinite: data?.content?.length > 1,
                     dots: false,
                     centerMode: false,
+                    arrows: true, // Ensure arrows are visible on medium screens
                 }
             },
             {
@@ -41,6 +42,7 @@ export default function OurAlumni() {
                     infinite: data?.content?.length > 1,
                     dots: false,
                     centerMode: true,
+                    arrows: true, // Ensure arrows are visible on small screens
                 }
             },
             {
@@ -51,6 +53,7 @@ export default function OurAlumni() {
                     infinite: data?.content?.length > 1,
                     dots: false,
                     centerMode: true,
+                    arrows: false, // Hide arrows on extra small screens
                 }
             }
         ]
@@ -60,32 +63,33 @@ export default function OurAlumni() {
     if (isError) return <div>Error: {error.message}</div>;
 
     return (
-        <section id="allumnus">
+        <section id="allumnus" className="px-4">
             <h1
                 className="text-center p-12 font-bold font-12"
                 style={{ fontSize: "48px" }}
             >
-                Our Alumnus
+                Our Alumnis
             </h1>
-            <div className="slider-container my-10 max-w-max mx-auto">
+            <div className="slider-container my-10 mx-auto w-full max-w-6xl relative md:flex md:place-content-center">
                 <Slider key={data?.content?.length || "default"} {...settings}>
                     {data?.content?.length > 0 ? (
                         data.content.map(alumnus => (
                             <div key={alumnus.id} className='bg-white p-[16px] border-[2px] rounded-[24px] border-neutral-100'>
-                                <Image 
-                                    className='w-full h-[350px] object-cover my-3 rounded-[24px]' 
-                                    src={alumnus.imageUrl} 
-                                    alt={alumnus.fullName} 
-                                    width={300} 
-                                    height={350} 
-                                />
-                                <h1 className='text-neutral-900 text-[24px] font-bold'>
+                                <div className="relative w-full h-[350px]">
+                                    <Image 
+                                        layout="fill"
+                                        className='object-cover rounded-[24px]' 
+                                        src={alumnus.imageUrl} 
+                                        alt={alumnus.fullName} 
+                                    />
+                                </div>
+                                <h1 className='text-neutral-900 text-[24px] font-bold mt-4'>
                                     {alumnus.fullName}
                                 </h1>
                                 <h3 className='text-Primary-600 text-[18px] font-light'>{alumnus.currentPosition}</h3>
                                 <p className='text-neutral-600 font-extralight text-[16px]'>{alumnus.description}</p>
                                 <Link href={`/allalumni/alumni/${alumnus.id}`}>
-                                    <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto">See More</h4>
+                                    <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto mt-4">See More</h4>
                                 </Link>
                             </div>
                         ))
@@ -99,15 +103,14 @@ export default function OurAlumni() {
 }
 
 function SampleNextArrow(props) {
-    const { style, onClick } = props;
+    const { onClick } = props;
     return (
-        <div className="max-w-max absolute cursor-pointer -right-10 top-[50%] bottom-[50%]">
+        <div className="hidden md:block absolute cursor-pointer -right-12 top-[50%] transform -translate-y-1/2">
             <Image
-                src={"arrow-circle-right.svg"}
+                src={"/arrow-circle-right.svg"}
                 alt="right-arrow"
                 width={48}
                 height={48}
-                style={{ ...style, display: "block", background: "", height: "48px", width: "48px" }}
                 onClick={onClick}
             />
         </div>
@@ -117,14 +120,14 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
-        <Image
-            className={"max-w-max absolute cursor-pointer -left-10 top-[50%] bottom-[50%]"}
-            style={{ display: "block", backgroundColor: "", height: "48px", width: "48px", right: "20px" }}
-            src={"/arrow-drop-circle-left.svg"}
-            alt="left-arrow"
-            width={48}
-            height={48}
-            onClick={onClick}
-        />
+        <div className="hidden md:block absolute cursor-pointer -left-12 top-[50%] transform -translate-y-1/2">
+            <Image
+                src={"/arrow-drop-circle-left.svg"}
+                alt="left-arrow"
+                width={48}
+                height={48}
+                onClick={onClick}
+            />
+        </div>
     );
 }

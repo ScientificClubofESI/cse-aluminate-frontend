@@ -79,12 +79,11 @@ const Navbar = () => {
         <div className="z-20 h-20 w-full items-center shadow-md bg-white flex fixed md:hidden align-center justify-between">
           <img src="./Assets/A_logo.png" alt="" className="h-10 ml-10" />
           <button onClick={toggleRespoList} className="mr-10">
-            <FontAwesomeIcon icon={faBars} className="h-8" />
-            {/* {respoListVisible ? (
-              
+            {respoListVisible ? (
+              <FontAwesomeIcon icon={faX} className="h-8" />
             ) : (
-              
-            )} */}
+              <FontAwesomeIcon icon={faBars} className="h-8" />
+            )}
           </button>
         </div>
 
@@ -94,13 +93,7 @@ const Navbar = () => {
             respoListVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
-          <div className="p-2 mt-5 flex flex-col items-center text-2xl font-semibold pb-10">
-            <div className=" flex place-content-between w-full">
-          <img src="./Assets/A_logo.png" alt="" className="h-10 ml-5" />
-            <button onClick={toggleRespoList}>
-              <FontAwesomeIcon icon={faX} className="h-8" />
-            </button>
-            </div>
+          <div className="p-5 mt-16">
             <ul className="space-y-6">
               {sections.map((section) => (
                 <li key={section.id} className="cursor-pointer">
