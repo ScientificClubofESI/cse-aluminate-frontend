@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma, SchoolName, Promotion, BirthCity, currentLocation, email, linkedin, description, currentPosition }) => {
+const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma, universityOfStudy  , Promotion, BirthCity, location, email, linkedin, description, currentPosition }) => {
     return (
         <section className='mt-[200px] mb-[100px] gap-3 w-[80%] mx-auto flex flex-col lg:flex-row'>
             <section className='lg:w-[70%]'>
@@ -56,19 +56,19 @@ const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                     </div>
                 </div>
             </section>
-            <section className='flex-1 border border-1 border-neutral-300 p-5 rounded-lg'>
-                <section>
+            <section className='flex flex-col place-content-center border border-1 border-neutral-300 p-5 rounded-lg'>
+                <section >
                     <h1 className='text-Primary-700 border-b-2 border-b-Primary-700  p-1 font-Outfit font-bold text-lg'>
                         Origin-Residence
                     </h1>
                     <div className='p-3'>
-                        <div>
+                        {/* <div>
                             <h2 className='font-[500] text-md text-neutral-700'>Birth City</h2>
                             <p className='font-Outfit text-neutral-600 text-xs font-[300] '>{BirthCity}</p>
-                        </div>
-                        <div  >
-                            <h2 className='font-[500] text-md text-neutral-700'>Curent Location</h2>
-                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>{currentLocation}</p>
+                        </div> */}
+                        <div className=' flex items-center gap-2'>
+                            <h2 className='font-[500] text-md text-neutral-700'>Current Location:</h2>
+                            <p className='font-Outfit text-neutral-600 text-xl font-[300] '>{location}</p>
                         </div>
                     </div>
 
@@ -78,18 +78,18 @@ const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                         Education
                     </h1>
                     <div className='p-3'>
-                        <div>
+                        {/* <div>
                             <h2 className='font-[500] text-md text-neutral-700'>Promotion</h2>
                             <p className='font-Outfit text-neutral-600 text-xs font-[300] '>{Promotion}</p>
+                        </div> */}
+                        <div className=' flex items-center' >
+                            <h2 className='font-[500] text-md text-neutral-700'>School/University Of Study:</h2>
+                            <p className='font-Outfit text-neutral-600 text-xl font-[300] '>{universityOfStudy}</p>
                         </div>
-                        <div  >
-                            <h2 className='font-[500] text-md text-neutral-700'>School/University Of Study</h2>
-                            <p className='font-Outfit text-neutral-600 text-xs font-[300] '>{SchoolName}</p>
-                        </div>
-                        <div  >
-                            <h2 className='font-[500] text-md text-neutral-700'>Last Academic Diploma</h2>
+                        {/* <div  >
+                            <h2 className='font-[500] text-md text-neutral-700'>Last Academic Diploma:</h2>
                             <p className='font-Outfit text-neutral-600 text-xs font-[300] '>{academicDiploma} </p>
-                        </div>
+                        </div> */}
                     </div>
 
                 </section>

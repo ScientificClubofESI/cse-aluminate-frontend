@@ -24,7 +24,7 @@ const ContactAlumni = () => {
     return (
         <div className="flex mt-[200px]">
             <AlumniInfoContact alumniInfo={data?.content} />
-            <FormContactAlumni destination={data.content.email} services={data.content.services} />
+            <FormContactAlumni destination={data?.content.email} services={data?.content.services} />
         </div>
     );
 };

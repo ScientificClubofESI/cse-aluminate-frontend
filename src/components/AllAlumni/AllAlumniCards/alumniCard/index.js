@@ -18,7 +18,7 @@ const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma,
             <header className='flex gap-[20px]  '>
                 <div className='text-center'>
                     <Image className='w-[100px] h-[100px] object-contain' height={100} width={100} src={imageUrl} />
-                    <h3 className='text-[12px] p-1 text-neutral-700 font-[400] font-Outfit'>Promo : E{Promotion}</h3>
+                    {/* <h3 className='text-[12px] p-1 text-neutral-700 font-[400] font-Outfit'>Promo : E{Promotion}</h3> */}
                 </div>
                 <div className=' '>
                     <div className='flex flex-col'>
