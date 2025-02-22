@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getAllAlumni, getAlumniById , getAllServices } from "./API"
+import { getAllAlumni, getAlumniById , getPopularServices} from "./API"
 
 
 export const useAlumni = (page) => {
@@ -18,8 +18,8 @@ export const useAlumniId = (id) => {
 
 export const useServices = () => {
     return useQuery({
-        queryKey: ['allService'],
-        queryFn: ()=> getAllServices()
+        queryKey: ['popularService'],
+        queryFn: ()=> getPopularServices()
     })
 }
 
