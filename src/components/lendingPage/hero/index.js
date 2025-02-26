@@ -8,10 +8,12 @@ const Hero = () => {
       className="px-[5%] mt-[200px] lg:px-[8%] flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-8 lg:grid lg:grid-cols-2 lg:my-[5%]"
       id="home"
     >
+      {/* Title */}
       <p className="text-4xl lg:text-5xl mt-10 font-extrabold text-center lg:text-left lg:justify-start">
         Connecting Alumni Uniting Dreams
       </p>
 
+      {/* Hero Image */}
       <div className="mx-[8%] h-auto flex justify-center items-center lg:row-span-3">
         <div className="rounded-[24px] lg:rounded-[32px] border border-Primary-100 bg-Primary-50 flex justify-center items-center p-2">
           <Image
@@ -24,56 +26,36 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative bg-white w-full rounded-[72px] border border-Secondary-50 flex items-center justify-between lg:hidden">
-        <div className="z-30 pl-[36px] py-[12px] flex items-center justify-start">
-          <img src="searchicon.svg" alt="Search Icon" />
-        </div>
-        <Link
-          className="z-30" href={"/allalumni"}>
-
-          <div className=" z-30 lg:px-[8px] lg:py-[8px]">
-            <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
-              <div className="z-30 text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
-                Find Alumni
-              </div>
-            </button>
-          </div>
+      {/* Mobile Button (No Div) */}
+      <div className="relative w-full flex items-center justify-center lg:hidden">
+        <Link href={"/allalumni"}>
+          <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
+            <div className=" lg:text-xl font-normal text-white leading-loose tracking-tight">
+              Find Alumni
+            </div>
+          </button>
         </Link>
-
-
-        <input
-          placeholder="search"
-          className="z-0 absolute py-[12px] px-20 outline-none bg-white w-full rounded-[72px] border border-Secondary-50 flex items-center justify-between lg:hidden"
-        />
       </div>
 
+      {/* Description */}
       <p className="font-light text-base text-center lg:text-left">
-        Welcome to Aluminate, where alumni come together to reignite old
-        connections and embark on exciting journeys of collaboration.
+        Welcome to Aluminate. Here, you can reignite old connections, forge
+        new partnerships, and embark on exciting journeys of professional and
+        personal growth. Join a vibrant community of like-minded individuals who
+        are shaping the future together.
       </p>
 
-      <div className='bg-white w-full rounded-[72px] border border-Secondary-50 items-center justify-between hidden  lg:flex'>
-        <div className='pl-[36px] py-[12px] flex items-center justify-start'>
-          <img src='searchicon.svg' alt='Search Icon' />
-          <input
-            type='text'
-            className='ml-[8px] outline-none border-none text-neutral-300 focus:text-neutral-600 text-neutral text-xs lg:text-lg'
-            placeholder='Search'
-          />
-
-        </div>
+      {/* Desktop Button (No Div) */}
+      <div className="w-full hidden lg:flex">
         <Link href={"/allalumni"}>
-          <div className="lg:px-[8px] lg:py-[8px]">
-            <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
-              <div className="text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
-                Find Alumni
-              </div>
-            </button>
-          </div>
+          <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
+            <div className="text-xs lg:text-xl font-normal text-white leading-loose tracking-tight">
+              Find Alumni
+            </div>
+          </button>
         </Link>
-
       </div>
-    </section >
+    </section>
   );
 };
 
