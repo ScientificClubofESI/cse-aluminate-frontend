@@ -34,7 +34,15 @@ const AllALumni = () => {
     return (
       alumni.fullName.toLowerCase().includes(searchLower) ||
       alumni.currentPosition.toLowerCase().includes(searchLower) ||
-      alumni.description.toLowerCase().includes(searchLower)
+      alumni.description.toLowerCase().includes(searchLower) ||
+      alumni.degree.toLowerCase().includes(searchLower) ||
+      alumni.services.some((service) =>
+        service.name.toLowerCase().includes(searchLower)
+      ) 
+      // ||
+      // alumni.services.some((service) =>
+      //   service.description.toLowerCase().includes(searchLower)
+      // )
     );
   });
 
@@ -61,7 +69,11 @@ const AllALumni = () => {
         {/* Pass searchQuery and handleSearch to SearchAlumni */}
         <SearchAlumni searchQuery={searchQuery} onSearch={handleSearch} />
         {/* Pass searchQuery to AllAlumniCards */}
-        <AllAlumniCards page={page} searchQuery={searchQuery} filteredAlumni={filteredAlumni} />
+        <AllAlumniCards
+          page={page}
+          searchQuery={searchQuery}
+          filteredAlumni={filteredAlumni}
+        />
         <div className="mx-auto max-w-max my-10">
           <ThemeProvider theme={theme}>
             <Pagination
