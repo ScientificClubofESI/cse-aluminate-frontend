@@ -3,8 +3,10 @@ import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   const [activeSection, setActiveSection] = useState("home");
   const [respoListVisible, setRespoListVisible] = useState(false);
 
@@ -15,23 +17,46 @@ const Navbar = () => {
   const sections = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
-    { id: "services", label: "Services" },
     { id: "allumnus", label: "Alumnis" },
+    { id: "services", label: "Services" },
     { id: "contact", label: "Contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollOffset = window.scrollY;
-      for (const section of sections) {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Check if user is at the bottom of the page
+      if (scrollOffset + windowHeight >= documentHeight - 10) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Find the current section based on scroll position
+      let currentSection = "home";
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
         const element = document.getElementById(section.id);
         if (element) {
-          const position = element.offsetTop;
-          if (scrollOffset >= position) {
-            setActiveSection(section.id);
+          const position = element.offsetTop - 150;
+          const nextSection = sections[i + 1];
+          const nextElement = nextSection
+            ? document.getElementById(nextSection.id)
+            : null;
+          const nextPosition = nextElement
+            ? nextElement.offsetTop - 150
+            : documentHeight;
+
+          if (scrollOffset >= position && scrollOffset < nextPosition) {
+            currentSection = section.id;
+            break;
           }
         }
       }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -54,17 +79,30 @@ const Navbar = () => {
             />
           </Link>
           <ul className="flex space-x-9 md:space-x-6">
-            {sections.map((section) => (
-              <ScrollLink
-                key={section.id}
-                to={section.id}
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                {section.label}
-              </ScrollLink>
-            ))}
+            {sections.map((section) =>
+              router.pathname === "/" ? (
+                <ScrollLink
+                  key={section.id}
+                  to={section.id}
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
+                  className={`cursor-pointer ${
+                    activeSection === section.id ? "text-Secondary-500" : ""
+                  }`}
+                >
+                  {section.label}
+                </ScrollLink>
+              ) : (
+                <Link
+                  key={section.id}
+                  href={{ pathname: "/", query: { scrollTo: section.id } }}
+                  className="cursor-pointer"
+                >
+                  {section.label}
+                </Link>
+              )
+            )}
           </ul>
           <Link href={"/allalumni"}>
             <button className="bg-Secondary-500 rounded-[24px] py-2 lg:py-3 px-4 lg:px-6">
@@ -96,25 +134,37 @@ const Navbar = () => {
         >
           <div className="p-2 mt-5 flex flex-col items-center text-2xl font-semibold pb-10">
             <div className=" flex place-content-between w-full">
-          <img src="./Assets/A_logo.png" alt="" className="h-10 ml-5" />
-            <button onClick={toggleRespoList}>
-              <FontAwesomeIcon icon={faX} className="h-8" />
-            </button>
+              <img src="./Assets/A_logo.png" alt="" className="h-10 ml-5" />
+              <button onClick={toggleRespoList}>
+                <FontAwesomeIcon icon={faX} className="h-8" />
+              </button>
             </div>
             <ul className="space-y-6">
               {sections.map((section) => (
                 <li key={section.id} className="cursor-pointer">
-                  <ScrollLink
-                    to={section.id}
-                    onClick={toggleRespoList}
-                    smooth={true}
-                    duration={500}
-                    className={`flex items-center gap-3 ${
-                      activeSection === section.id ? "active" : ""
-                    }`}
-                  >
-                    {section.label}
-                  </ScrollLink>
+                  {router.pathname === "/" ? (
+                    <ScrollLink
+                      key={section.id}
+                      to={section.id}
+                      smooth={true}
+                      duration={500}
+                      offset={-80}
+                      onClick={toggleRespoList}
+                      className={`${
+                        activeSection === section.id ? "text-Secondary-500" : ""
+                      }`}
+                    >
+                      {section.label}
+                    </ScrollLink>
+                  ) : (
+                    <Link
+                      key={section.id}
+                      onClick={toggleRespoList}
+                      href={{ pathname: "/", query: { scrollTo: section.id } }}
+                    >
+                      {section.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
