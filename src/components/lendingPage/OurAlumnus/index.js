@@ -70,7 +70,7 @@ export default function OurAlumni() {
             >
                 Our Alumnis
             </h1>
-            <div className="slider-container my-10 mx-auto w-full max-w-6xl relative md:flex md:place-content-center">
+            <div className="slider-container my-10 mx-auto w-full max-w-6xl relative md:flex md:place-content-center overflow-hidden">
                 <Slider key={data?.content?.length || "default"} {...settings}>
                     {data?.content?.length > 0 ? (
                         data.content.map(alumnus => (
@@ -79,8 +79,8 @@ export default function OurAlumni() {
                                     <Image 
                                         layout="fill"
                                         className='object-cover rounded-[24px]' 
-                                        src={alumnus.imageUrl} 
-                                        alt={alumnus.fullName} 
+                                        src={alumnus.imageUrl || '/Unknown_person.jpg'} 
+                                        alt={alumnus.fullName ? `${alumnus.fullName} - Alumni` : 'Alumni'} 
                                     />
                                 </div>
                                 <h1 className='text-neutral-900 text-[24px] font-bold mt-4'>

@@ -17,7 +17,13 @@ const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma,
         <div className='bg-white shadow-1 rounded-xl w-[550px] space-y-2  px-[24px] py-[24px]'>
             <header className='flex gap-[20px]  '>
                 <div className='text-center'>
-                    <Image className='w-[100px] h-[100px] object-contain' height={100} width={100} src={imageUrl} />
+                    <Image 
+                        className='w-[100px] h-[100px] object-cover rounded-lg' 
+                        height={100} 
+                        width={100} 
+                        src={imageUrl || '/Unknown_person.jpg'} 
+                        alt={fullName || 'Alumni'}
+                    />
                     {/* <h3 className='text-[12px] p-1 text-neutral-700 font-[400] font-Outfit'>Promo : E{Promotion}</h3> */}
                 </div>
                 <div className=' '>

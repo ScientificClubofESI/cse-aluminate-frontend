@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 
 const AlumniInfoContact = ({ alumniInfo }) => {
-  console.log({ alumniInfo })
+  console.log({ alumniInfo });
   return (
     <div className="w-[28%] gap-5 hidden lg:grid mx-8 bg-Primary-200/30 p-5">
       <div className="w-full grid gap-5 justify-items-center ">
@@ -15,13 +15,23 @@ const AlumniInfoContact = ({ alumniInfo }) => {
         <p className="text-2xl text-Secondary-700 font-semibold">
           Contact Alumni
         </p>
-        <Image src={alumniInfo.imageUrl} alt={alumniInfo.fullName} width={300} height={60} className="h-60 object-cover" />
+        <Image
+          src={alumniInfo.imageUrl || "/Unknown_person.jpg"}
+          alt={
+            alumniInfo.fullName ? `${alumniInfo.fullName} - Alumni` : "Alumni"
+          }
+          width={300}
+          height={60}
+          className="h-60 object-cover rounded-lg"
+        />
       </div>
 
       <div className="grid gap-2">
         {" "}
         <p className=" font-medium text-xl">{alumniInfo.fullName}</p>
-        <p className=" font-light text-Primary-600">{alumniInfo.currentPosition}</p>
+        <p className=" font-light text-Primary-600">
+          {alumniInfo.currentPosition}
+        </p>
         <div className="location flex items-center gap-2 ">
           <FontAwesomeIcon
             icon={faLocationDot}

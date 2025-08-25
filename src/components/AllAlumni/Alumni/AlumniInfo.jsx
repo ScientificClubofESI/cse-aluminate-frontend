@@ -7,7 +7,13 @@ const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma,
             <section className='lg:w-[70%]'>
                 <header className='flex gap-2 items-center  '>
 
-                    <Image src={imageUrl} alt="Alumni Image" width={160} height={160} className=' rounded-3xl object-cover  w-[160px] h-[160px]' />
+                    <Image 
+                        src={imageUrl || '/Unknown_person.jpg'} 
+                        alt={fullName ? `${fullName} - Alumni Image` : "Alumni Image"} 
+                        width={160} 
+                        height={160} 
+                        className=' rounded-3xl object-cover  w-[160px] h-[160px]' 
+                    />
 
 
 
