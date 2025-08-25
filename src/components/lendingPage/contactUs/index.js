@@ -35,7 +35,7 @@ const ContactUs = () => {
   ];
   return (
     <div className=" relative " id="contact">
-      <section className=" flex flex-col place-content-between xl:gap-10 w-full mx-auto absolute lg:mt-10 mt-24">
+      <section className=" flex flex-col place-content-between gap-5 lg:gap-10 w-full mx-auto absolute lg:mt-10 mt-24">
         <div className=" flex flex-col items-center">
           <p className="  uppercase font-bold xl:text-5xl text-4xl">
             contact us
@@ -66,7 +66,7 @@ const ContactUs = () => {
       </section>
       <svg
         //  className=" absolute sm:bottom-0 bottom-[-20px] z-[-5] lg:h-[250px] h-[300px]"
-        className=""
+        className="w-full"
         width=""
         height="246"
         viewBox="0 0 1440 246"
