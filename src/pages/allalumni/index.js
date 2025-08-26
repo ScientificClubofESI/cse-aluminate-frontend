@@ -3,7 +3,7 @@ import Filter from "@/components/AllAlumni/Filter";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchAlumni from "@/components/AllAlumni/searchAlumni";
 import { useAlumni } from "@/utils/fetchData";
 import Loading from "@/components/LOADING/Loading";
@@ -18,18 +18,18 @@ const theme = createTheme({
 
 const AllALumni = () => {
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const { data, isError, isLoading, isSuccess, error } = useAlumni(page);
-  const {   allALumni, isError2, isLoading2, isSuccess2, error2 } = useAlumni();
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
-  if (isError) {
-    return <div>{error.message}</div>;
-  }
-  const filteredAlumni = data?.content?.filter((alumni) => {
+  // if (isError) {
+  //   return <div>{error.message}</div>;
+  // }
+  const filteredAlumni = data?.content?.page.filter((alumni) => {
     const searchLower = searchQuery.toLowerCase();
     return (
       alumni.fullName.toLowerCase().includes(searchLower) ||
@@ -54,9 +54,19 @@ const AllALumni = () => {
     setSearchQuery(query);
     setPage(1); // Reset to the first page when searching
   };
-  console.log("page size", data);
-  
-  const totalPages = Math.ceil(allALumni?.content?.length / 3);
+
+  // useEffect to update totalPages when data changes or when searching
+  useEffect(() => {
+    if (searchQuery && filteredAlumni) {
+      // When searching, calculate pages based on filtered results
+      setTotalPages(Math.ceil(filteredAlumni.length / 3));
+    } else if (data?.content?.total) {
+      // When not searching, use total from API
+      setTotalPages(Math.ceil(data.content.total / 3));
+    }
+  }, [data, searchQuery, filteredAlumni]);
+
+  // console.log("page size", data);
 
   return (
     <>
@@ -69,21 +79,27 @@ const AllALumni = () => {
         {/* Pass searchQuery and handleSearch to SearchAlumni */}
         <SearchAlumni searchQuery={searchQuery} onSearch={handleSearch} />
         {/* Pass searchQuery to AllAlumniCards */}
-        <AllAlumniCards
-          page={page}
-          searchQuery={searchQuery}
-          filteredAlumni={filteredAlumni}
-        />
-        <div className="mx-auto max-w-max my-10">
-          <ThemeProvider theme={theme}>
-            <Pagination
+        {isLoading ? <div className="flex items-center justify-center text-center">Loading...</div> : 
+        isError ? <div className="flex items-center justify-center text-center">{error.message}</div> :
+        (
+          <>
+            <AllAlumniCards
               page={page}
-              className="custom-pagination"
-              onChange={handleChange}
-              count={totalPages}
+              searchQuery={searchQuery}
+              filteredAlumni={filteredAlumni}
             />
-          </ThemeProvider>
-        </div>
+            <div className="mx-auto max-w-max my-10">
+              <ThemeProvider theme={theme}>
+                <Pagination
+                  page={page}
+                  className="custom-pagination"
+                  onChange={handleChange}
+                  count={totalPages}
+                />
+              </ThemeProvider>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

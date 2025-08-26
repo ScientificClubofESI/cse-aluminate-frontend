@@ -4,7 +4,7 @@ import { getAllAlumni, getAlumniById , getPopularServices} from "./API"
 
 export const useAlumni = (page) => {
     return useQuery({
-        queryKey: ['allAlumni'],
+        queryKey: ['allAlumni', page],
         queryFn: () => getAllAlumni(page)
     })
 }
