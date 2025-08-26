@@ -96,7 +96,7 @@ export default function OurAlumni() {
                             </div>
                         ))
                     ) : (
-                        <p>No alumni data available.</p>
+                        <p className="text-center">No alumni data available.</p>
                     )}
                 </Slider>
             </div>}

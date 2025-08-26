@@ -48,14 +48,25 @@ const PopularServices = () => {
       >
         Popular Services
       </h1>
-      {isLoading ? <div className="my-2 mx-auto w-full max-w-6xl relative flex place-content-center">Loading...</div> :
-       isError ? <div className="my-2 mx-auto w-full max-w-6xl relative flex place-content-center">Error: {error.message}</div> :
+      {isLoading ? (
+        <div className="my-2 mx-auto w-full max-w-6xl relative flex place-content-center">
+          Loading...
+        </div>
+      ) : isError ? (
+        <div className="my-2 mx-auto w-full max-w-6xl relative flex place-content-center">
+          Error: {error.message}
+        </div>
+      ) : (
         <ul className="lg:mx-auto max-w-[950px] grid grid-cols-1 sm:grid-cols-2 mx-3 gap-3">
-          {data?.content?.map((element) => (
-            <Service element={element} />
-          ))}
+          {data?.content?.length > 0 ? (
+            data?.content?.map((element) => <Service element={element} />)
+          ) : (
+            <p className="col-span-full text-center">
+              No services data available.
+            </p>
+          )}
         </ul>
-      }
+      )}
     </div>
   );
 };
