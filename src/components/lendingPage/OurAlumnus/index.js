@@ -59,8 +59,8 @@ export default function OurAlumni() {
         ]
     };
 
-    if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>Error: {error.message}</div>;
+    // if (isLoading) return <div>Loading...</div>;
+    // if (isError) return <div>Error: {error.message}</div>;
 
     return (
         <section id="allumnus" className="px-4">
@@ -70,6 +70,8 @@ export default function OurAlumni() {
             >
                 Our Alumnis
             </h1>
+            {isLoading ? <div className="my-10 mx-auto w-full max-w-6xl relative flex place-content-center">Loading...</div> :
+            isError ? <div className="my-10 mx-auto w-full max-w-6xl relative flex place-content-center">Error: {error.message}</div> :
             <div className="slider-container my-10 mx-auto w-full max-w-6xl relative md:flex md:place-content-center overflow-hidden">
                 <Slider key={data?.content?.length || "default"} {...settings}>
                     {data?.content?.length > 0 ? (
@@ -97,7 +99,7 @@ export default function OurAlumni() {
                         <p>No alumni data available.</p>
                     )}
                 </Slider>
-            </div>
+            </div>}
         </section>
     );
 }
