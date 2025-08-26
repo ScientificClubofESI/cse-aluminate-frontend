@@ -12,7 +12,7 @@ export default function OurAlumni() {
     const slidesToShow = Math.min(data?.content?.length || 1, 3); // Max of 3 slides
 
     const settings = {
-        arrows: true,
+        arrows: data?.content?.length > 0, // Hide arrows if no data
         className: "center",
         centerMode: false,
         infinite: data?.content?.length > 1, // Only enable infinite if there are multiple slides
@@ -31,7 +31,7 @@ export default function OurAlumni() {
                     infinite: data?.content?.length > 1,
                     dots: false,
                     centerMode: false,
-                    arrows: true, // Ensure arrows are visible on medium screens
+                    arrows: data?.content?.length > 0, // Hide arrows if no data
                 }
             },
             {
@@ -42,7 +42,7 @@ export default function OurAlumni() {
                     infinite: data?.content?.length > 1,
                     dots: false,
                     centerMode: true,
-                    arrows: true, // Ensure arrows are visible on small screens
+                    arrows: data?.content?.length > 0, // Hide arrows if no data
                 }
             },
             {
