@@ -32,7 +32,7 @@ const FormContactAlumni = ({ destination, services }) => {
                 const data = Object.fromEntries(formData);
                 data.destination = destination;
 
-                const response = await axios.post('v1/alumni/send-email', data)
+                const response = await axios.post('v2/alumni/send-email', data)
                 alert(response.data.message)
             } catch (e) {
                 console.log(e)
@@ -58,7 +58,7 @@ const FormContactAlumni = ({ destination, services }) => {
           } else {
             // Use the actual backend
             const data = { ...values, destination };
-            const response = await axios.post('v1/alumni/send-email', data);
+            const response = await axios.post('v2/alumni/send-email', data);
             alert(response.data.message);
           }
         } catch (error) {
