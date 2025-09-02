@@ -20,16 +20,14 @@ const AllALumni = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const { data, isError, isLoading, isSuccess, error } = useAlumni(page);
+  
+  // Get all alumni data without pagination
+  const { data: allData, isError, isLoading, isSuccess, error } = useAlumni();
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
-
-  // if (isError) {
-  //   return <div>{error.message}</div>;
-  // }
-  const filteredAlumni = data?.content?.page.filter((alumni) => {
+  // Filter all alumni data based on search query
+  const filteredAlumni = allData?.content?.filter((alumni) => {
+    if (!searchQuery) return true; // Show all if no search query
+    
     const searchLower = searchQuery.toLowerCase();
     return (
       alumni.fullName.toLowerCase().includes(searchLower) ||
@@ -38,13 +36,12 @@ const AllALumni = () => {
       alumni.degree.toLowerCase().includes(searchLower) ||
       alumni.services.some((service) =>
         service.name.toLowerCase().includes(searchLower)
-      ) 
-      // ||
-      // alumni.services.some((service) =>
-      //   service.description.toLowerCase().includes(searchLower)
-      // )
+      )
     );
-  });
+  }) || [];
+
+  // Paginate the filtered results
+  const paginatedAlumni = filteredAlumni.slice((page - 1) * 3, page * 3);
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -57,14 +54,11 @@ const AllALumni = () => {
 
   // useEffect to update totalPages when data changes or when searching
   useEffect(() => {
-    if (searchQuery && filteredAlumni) {
-      // When searching, calculate pages based on filtered results
+    if (filteredAlumni) {
+      // Calculate pages based on filtered results
       setTotalPages(Math.ceil(filteredAlumni.length / 3));
-    } else if (data?.content?.total) {
-      // When not searching, use total from API
-      setTotalPages(Math.ceil(data.content.total / 3));
     }
-  }, [data, searchQuery, filteredAlumni]);
+  }, [filteredAlumni]);
 
   // console.log("page size", data);
 
@@ -86,7 +80,7 @@ const AllALumni = () => {
             <AllAlumniCards
               page={page}
               searchQuery={searchQuery}
-              filteredAlumni={filteredAlumni}
+              filteredAlumni={paginatedAlumni}
             />
             <div className="mx-auto max-w-max my-10">
               <ThemeProvider theme={theme}>
