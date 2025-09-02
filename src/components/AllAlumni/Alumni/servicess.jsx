@@ -5,7 +5,7 @@ import Service from './Service'
 const Services = ({ services }) => {
     const servicessArray = ["Internships", "Accommodation Offers", "Workshops", "Mentoring Program", "Advice", "Job Opportunities", "Recomandations"]
     return (
-        <div className='w-[80%] mx-auto px-4  bg-white p-1 rounded-2xl '>
+        <div className='w-[80%] mx-auto px-4  bg-white p-1 rounded-2xl my-10'>
             <h1 className='text-neutral-700 w-full border-b-[1px] p-1 border-b-neutral-700 font-Outfit text-[20px] font-[500]'>Services</h1>
             {
                 services?.map((serv) => {

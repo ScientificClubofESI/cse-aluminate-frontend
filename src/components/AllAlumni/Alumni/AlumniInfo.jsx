@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma, universityOfStudy  , Promotion, BirthCity, location, email, linkedin, description, currentPosition }) => {
     return (
-        <section className='mt-[200px] mb-[100px] gap-3 w-[80%] mx-auto flex flex-col lg:flex-row'>
+        <section className='mt-[200px] mb-[100px] gap-3 w-[80%] mx-auto flex flex-col lg:flex-row '>
             <section className='lg:w-[70%]'>
                 <header className='flex gap-2 items-center  '>
 
@@ -21,7 +21,7 @@ const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                         <h1 className='text-[24px] sm:text-3xl md:text-4xl   font-semibold text-neutral-900 mb-2'>{fullName}</h1>
                         <p className='text-Primary-600 font-normal '>{currentPosition}</p>
                         <div>
-                            <h1 className='text-Primary-700 text-[20px] font-Outfit px-2 border-[0.9px] max-w-max py-1 bg-white rounded-xl border-Primary-200  font-[400]'>{degree}</h1>
+                            <h1 className='text-Primary-700 text-sm sm:text-base md:text-lg lg:text-[20px] font-Outfit px-2 sm:px-3 border-[0.9px] max-w-max py-1 sm:py-2 bg-white rounded-xl border-Primary-200 font-[400]'>{degree}</h1>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@ const AlumniInfo = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                     <div className='text-center lg:text-left flex flex-col text-sm sm:text-base md:text-lg mb-6'>
                         <div className='text-Primary-800 flex justify-center lg:justify-start lg:gap-2'>
                             <p className='font-extralight underline'>LinkedIn :</p>
-                            <p className='font-normal'>{linkedin}</p>
+                            <Link href={`${linkedin}`} target="_blank" className='font-normal'>{linkedin}</Link>
                         </div>
 
                         <div className='text-Secondary-700 flex justify-center lg:justify-start lg:gap-2'>

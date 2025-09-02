@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma, SchoolName, Promotion, BirthCity, currentLocation, email, linkedin, description, currentPosition }) => {
+const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma, SchoolName, Promotion, BirthCity, location, email, linkedin, description, currentPosition }) => {
 
     const degreeArray = [
         "Academic", "Professional"
@@ -15,8 +15,8 @@ const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma,
 
     return (
         <div className='bg-white shadow-1 rounded-xl w-[550px] space-y-2  px-[24px] py-[24px]'>
-            <header className='flex gap-[20px]  '>
-                <div className='text-center'>
+            <header className='flex gap-[20px]  flex-wrap'>
+                <div className='text-center flex-shrink-0'>
                     <Image 
                         className='w-[100px] h-[100px] object-cover rounded-lg' 
                         height={100} 
@@ -26,7 +26,7 @@ const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                     />
                     {/* <h3 className='text-[12px] p-1 text-neutral-700 font-[400] font-Outfit'>Promo : E{Promotion}</h3> */}
                 </div>
-                <div className=' '>
+                <div className=''>
                     <div className='flex flex-col'>
                         {/*Name*/}
                         <h1 className='text-neutral-900 font-[600] text-[20px]'>
@@ -37,7 +37,7 @@ const AlumniCard = ({ id, degree, imageUrl, fullName, services, academicDiploma,
                             {currentPosition}
                         </h2>
                         <h3 className='text-neutral-700 font-Outfit font-[300] text-[14px]'>
-                            {currentLocation}
+                            {location}
                         </h3>
                     </div>
                     {/* degree */}

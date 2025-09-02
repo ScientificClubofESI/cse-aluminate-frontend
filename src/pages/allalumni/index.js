@@ -29,6 +29,7 @@ const AllALumni = () => {
   // if (isError) {
   //   return <div>{error.message}</div>;
   // }
+  //TODO : implement search on backend instead of frontend
   const filteredAlumni = data?.content?.page.filter((alumni) => {
     const searchLower = searchQuery.toLowerCase();
     return (

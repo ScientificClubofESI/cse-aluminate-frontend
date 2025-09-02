@@ -70,14 +70,14 @@ const FormContactAlumni = ({ destination, services }) => {
     
 
     return (
-        <div className="grid p-5 w-screen lg:w-[70vw] justify-items-center content-center">
-            <p className="text-2xl  font-medium text-Primary-600">
+        <div className="grid p-4 lg:p-5 w-full max-w-none lg:max-w-[70vw] lg:w-[70vw] justify-items-center content-center">
+            <p className="text-xl lg:text-2xl font-medium text-Primary-600 text-center">
                 Please fill this form
             </p>
-            <form onSubmit={formik.handleSubmit} className="mt-8 grid justify-items-center content-center">
+            <form onSubmit={formik.handleSubmit} className="mt-6 lg:mt-8 grid justify-items-center content-center w-full max-w-md lg:max-w-none">
       <div className="grid gap-4">
-        <div className="flex gap-4">
-          <div className="grid w-1/2">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="grid w-full md:w-1/2">
             <label htmlFor="senderName" className="m-2">
               Full name*
             </label>
@@ -91,11 +91,13 @@ const FormContactAlumni = ({ destination, services }) => {
               onBlur={formik.handleBlur}
               value={formik.values.senderName}
             />
-            {formik.touched.senderName && formik.errors.senderName ? (
-              <div className="text-red-500 text-sm">{formik.errors.senderName}</div>
-            ) : null}
+            <div className="h-6 mt-1">
+              {formik.touched.senderName && formik.errors.senderName ? (
+                <div className="text-red-500 text-sm">{formik.errors.senderName}</div>
+              ) : null}
+            </div>
           </div>
-          <div className="grid w-1/2">
+          <div className="grid w-full md:w-1/2">
             <label htmlFor="senderEmail" className="m-2">
               Email Address*
             </label>
@@ -104,14 +106,16 @@ const FormContactAlumni = ({ destination, services }) => {
               id="senderEmail"
               name="senderEmail"
               placeholder="example@gmail.com"
-              className="px-3 py-2 font-light rounded-lg"
+              className="px-3 py-2 w-full font-light rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.senderEmail}
             />
-            {formik.touched.senderEmail && formik.errors.senderEmail ? (
-              <div className="text-red-500 text-sm">{formik.errors.senderEmail}</div>
-            ) : null}
+            <div className="h-6 mt-1">
+              {formik.touched.senderEmail && formik.errors.senderEmail ? (
+                <div className="text-red-500 text-sm">{formik.errors.senderEmail}</div>
+              ) : null}
+            </div>
           </div>
         </div>
         <div className="grid">
@@ -128,54 +132,61 @@ const FormContactAlumni = ({ destination, services }) => {
             onBlur={formik.handleBlur}
             value={formik.values.object}
           />
-          {formik.touched.object && formik.errors.object ? (
-            <div className="text-red-500 text-sm">{formik.errors.object}</div>
-          ) : null}
+          <div className="h-6 mt-1">
+            {formik.touched.object && formik.errors.object ? (
+              <div className="text-red-500 text-sm">{formik.errors.object}</div>
+            ) : null}
+          </div>
         </div>
-        <label className="m-2 mt-0">Choose a service*</label>
-        <div className="flex gap-5 flex-wrap">
-          {services.map((service) => (
-            <div key={service.id} className="gap-1 flex items-center">
-              <input
-                type="radio"
-                id={service.id}
-                name="service"
-                value={service.name}
-                className="accent-Secondary-600"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              <label htmlFor={service.id} className="flex-wrap font-light whitespace-nowrap">
-                {service.name}
-              </label>
-            </div>
-          ))}
-        </div>
-        {formik.touched.service && formik.errors.service ? (
-          <div className="text-red-500 text-sm">{formik.errors.service}</div>
-        ) : null}
         <div className="grid">
+          <label className="m-2 mt-0">Choose a service*</label>
+          <div className="flex gap-3 lg:gap-5 flex-wrap">
+            {services.map((service) => (
+              <div key={service.id} className="gap-1 flex items-center">
+                <input
+                  type="radio"
+                  id={service.id}
+                  name="service"
+                  value={service.name}
+                  className="accent-Secondary-600"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                <label htmlFor={service.id} className="flex-wrap font-light text-sm lg:text-base break-words">
+                  {service.name}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="h-6 mt-1">
+            {formik.touched.service && formik.errors.service ? (
+              <div className="text-red-500 text-sm">{formik.errors.service}</div>
+            ) : null}
+          </div>
+        </div>
+        <div className="grid w-full">
           <label htmlFor="description" className="m-2 mt-0">
             Description*
           </label>
-          <input
-            type="text"
+          <textarea
             name="description"
             placeholder="Define briefly your object"
-            className="pb-[20vh] pt-2 px-3 rounded-lg font-light flex items-start justify-start"
+            className="h-32 lg:h-40 w-full pt-2 px-3 rounded-lg font-light resize-none"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.description}
           />
-          {formik.touched.description && formik.errors.description ? (
-            <div className="text-red-500 text-sm">{formik.errors.description}</div>
-          ) : null}
+          <div className="h-6 mt-1">
+            {formik.touched.description && formik.errors.description ? (
+              <div className="text-red-500 text-sm">{formik.errors.description}</div>
+            ) : null}
+          </div>
         </div>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 w-full flex justify-center">
         <button
           type="submit"
-          className="bg-Primary-600 py-3 px-8 flex gap-3 items-center text-white rounded-3xl"
+          className="bg-Primary-600 py-3 px-6 lg:px-8 flex gap-3 items-center text-white rounded-3xl text-sm lg:text-base"
         >
           Send Message
           <FontAwesomeIcon icon={faPaperPlane} color="white" />

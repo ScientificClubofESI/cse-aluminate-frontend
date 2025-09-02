@@ -65,7 +65,7 @@ const AlumniInfoContact = ({ alumniInfo }) => {
           <p className="text-Primary-800 underline  font-extralight">
             LinkedIn:
           </p>
-          <a href={alumniInfo.linkedin} className="text-Primary-800 ">
+          <a href={alumniInfo.linkedin} target='_blank' className="text-Primary-800 ">
             {alumniInfo.fullName}
           </a>
         </div>
