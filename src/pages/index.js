@@ -7,16 +7,13 @@ import Hero from "@/components/lendingPage/hero";
 import About from "@/components/lendingPage/about";
 import Logos from "@/components/lendingPage/Logos";
 
-
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-
-
 export default function Home() {
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
+  useEffect(() => {
     if (router.query.scrollTo) {
       const el = document.getElementById(router.query.scrollTo);
       if (el) {
@@ -24,7 +21,7 @@ export default function Home() {
         const offsetPosition = elementPosition - 80; // Account for navbar height (h-20 = 80px)
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
 
@@ -33,16 +30,26 @@ export default function Home() {
     }
   }, [router.query]);
 
-    return (
-        <>
-            <Navbar />
-            <Hero />
-            <About />
-            <OurAlumni />
-            <PopularServices />
-            {/* <PopularSkills /> */}
-            <Logos />
-            <ContactUs />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <div
+        style={{
+          backgroundImage: "url(/Hero.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <Hero />
+      </div>
+
+      <About />
+      <OurAlumni />
+      <PopularServices />
+      {/* <PopularSkills /> */}
+      <Logos />
+      <ContactUs />
+    </>
+  );
 }
