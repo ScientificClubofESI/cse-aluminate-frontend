@@ -26,7 +26,16 @@ const ALumni = () => {
 
   return (
     <section>
+      <div
+        style={{
+          backgroundImage: 'url(/Ellipse%207.png)',
+          backgroundPosition: 'top left',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain'
+        }}
+        >
       <AlumniInfo key={data?.content.id} {...data?.content} />
+      </div>
       {/* <Degree degree={"Student"} /> */}
       <Services services={data?.content.services} />
       {/* <Degree />
