@@ -77,22 +77,24 @@ export default function OurAlumni() {
                     {data?.content?.length > 0 ? (
                         data.content.map(alumnus => (
                             <div key={alumnus.id} className='bg-white p-[16px] border-[2px] rounded-[24px] border-neutral-100'>
-                                <div className="relative w-full h-[350px]">
-                                    <Image 
-                                        layout="fill"
-                                        className='object-cover rounded-[24px]' 
-                                        src={alumnus.imageUrl || '/Unknown_person.jpg'} 
-                                        alt={alumnus.fullName ? `${alumnus.fullName} - Alumni` : 'Alumni'} 
-                                    />
+                                <div className="flex flex-col h-[600px]">
+                                    <div className="relative w-full h-[350px] flex-shrink-0">
+                                        <Image 
+                                            layout="fill"
+                                            className='object-cover rounded-[24px]' 
+                                            src={alumnus.imageUrl || '/Unknown_person.jpg'} 
+                                            alt={alumnus.fullName ? `${alumnus.fullName} - Alumni` : 'Alumni'} 
+                                        />
+                                    </div>
+                                    <h1 className='text-neutral-900 text-[24px] font-bold mt-4 line-clamp-2'>
+                                        {alumnus.fullName}
+                                    </h1>
+                                    <h3 className='text-Primary-600 text-[18px] font-light line-clamp-2'>{alumnus.currentPosition}</h3>
+                                    <p className='text-neutral-600 font-extralight text-[16px] line-clamp-3 flex-grow'>{alumnus.description}</p>
+                                    <Link href={`/allalumni/alumni/${alumnus.id}`}>
+                                        <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto mt-4">See More</h4>
+                                    </Link>
                                 </div>
-                                <h1 className='text-neutral-900 text-[24px] font-bold mt-4'>
-                                    {alumnus.fullName}
-                                </h1>
-                                <h3 className='text-Primary-600 text-[18px] font-light'>{alumnus.currentPosition}</h3>
-                                <p className='text-neutral-600 font-extralight text-[16px]'>{alumnus.description}</p>
-                                <Link href={`/allalumni/alumni/${alumnus.id}`}>
-                                    <h4 className="font-Outfit font-[600] text-[20px] text-Primary-600 max-w-max mx-auto mt-4">See More</h4>
-                                </Link>
                             </div>
                         ))
                     ) : (
