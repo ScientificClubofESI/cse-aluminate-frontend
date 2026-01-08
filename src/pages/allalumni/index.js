@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import SearchAlumni from "@/components/AllAlumni/searchAlumni";
 import { useAlumni } from "@/utils/fetchData";
 import Loading from "@/components/LOADING/Loading";
+import Head from "next/head";
 
 const theme = createTheme({
   palette: {
@@ -64,6 +65,39 @@ const AllALumni = () => {
 
   return (
     <>
+      <Head>
+        <title>All Alumni - CSE Aluminate | Browse ESI Computer Science Graduates</title>
+        <meta 
+          name="description" 
+          content="Browse and connect with all ESI Computer Science Engineering alumni. Search by skills, services, degrees, and expertise to find the right professional for your needs." 
+        />
+        <meta 
+          name="keywords" 
+          content="ESI alumni directory, CSE graduates, computer science professionals, alumni search, engineering talent, tech experts\" 
+        />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="All Alumni - CSE Aluminate | Browse ESI Computer Science Graduates" />
+        <meta 
+          property="og:description" 
+          content="Browse and connect with all ESI Computer Science Engineering alumni. Search by skills, services, degrees, and expertise." 
+        />
+        <meta property="og:image" content="/SEOpage.png" />
+        <meta property="og:url" content="https://cse-aluminate.cse.club/allalumni" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="All Alumni - CSE Aluminate" />
+        <meta 
+          name="twitter:description" 
+          content="Browse and connect with all ESI Computer Science Engineering alumni." 
+        />
+        <meta name="twitter:image" content="/SEOpage.png" />
+        
+        <link rel="canonical" href="https://cse-aluminate.cse.club/allalumni" />
+      </Head>
+      
       <div>
         <div className="justify-center items-center gap-2 text-2xl flex mt-[200px] my-10">
           <h1 className="font-[600] max-w-max mx-auto text-Primary-700">

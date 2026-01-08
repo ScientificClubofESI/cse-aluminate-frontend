@@ -1,0 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://cse-aluminate.cse.club/sitemap.xml
+
+# Disallow specific paths if needed
+# User-agent: *
+# Disallow: /api/
+# Disallow: /admin/
