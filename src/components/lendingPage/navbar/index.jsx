@@ -114,7 +114,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navbar (unchanged) */}
-        <div className="z-20 h-20 w-full items-center  bg-white flex fixed md:hidden align-center justify-between p-4">
+        <div className="z-20 h-20 w-full items-center   flex fixed md:hidden align-center justify-between p-4 rounded-3xl">
           <img src="./Assets/A_logo.png" alt="" className="h-10 " />
           <button onClick={toggleRespoList} className="mr-10">
             <FontAwesomeIcon icon={faBars} className="h-8" />
@@ -128,7 +128,7 @@ const Navbar = () => {
 
         {/* Mobile Menu (updated to slide from top) */}
         <div
-          className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${
+          className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 rounded-b-3xl ${
             respoListVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
