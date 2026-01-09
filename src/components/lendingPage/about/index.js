@@ -2,9 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="container mx-auto">
+    <section id="about" className="container mx-auto -mt-12 lg:mt-0">
       <h1
-        className="text-center p-8 font-bold font-12"
+        className="text-center pt-0 pb-8 px-8 lg:pt-2 font-bold font-12"
         style={{ fontSize: "48px" }}
       >
         About <span className="text-Secondary-500">Aluminate</span>

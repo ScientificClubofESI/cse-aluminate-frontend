@@ -68,7 +68,7 @@ const Navbar = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <nav className="z-50 h-20 px-5 rounded-3xl bg-white nav-shadow md:flex lg:text-lg items-center md:text-md justify-center top-0 w-[100vw] fixed font-Outfit font-medium">
+      <nav className="z-50 h-20 px-5 rounded-3xl bg-white  md:flex lg:text-lg items-center md:text-md justify-center top-0 w-[100vw] fixed font-Outfit font-medium">
         {/* Desktop Navbar (unchanged) */}
         <div className="hidden container md:flex justify-between items-center">
           <Link href="/">
@@ -114,8 +114,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navbar (unchanged) */}
-        <div className="z-20 h-20 w-full items-center shadow-md bg-white flex fixed md:hidden align-center justify-between">
-          <img src="./Assets/A_logo.png" alt="" className="h-10 ml-10" />
+        <div className="z-20 h-20 w-full items-center  bg-white flex fixed md:hidden align-center justify-between p-4">
+          <img src="./Assets/A_logo.png" alt="" className="h-10 " />
           <button onClick={toggleRespoList} className="mr-10">
             <FontAwesomeIcon icon={faBars} className="h-8" />
             {/* {respoListVisible ? (
