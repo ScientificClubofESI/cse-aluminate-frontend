@@ -50,10 +50,10 @@ export default function Home() {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cse-aluminate.cse.club/" />
-        <meta property="og:title" content="CSE Aluminate - Connect with ESI Alumni & Find Expert Services" />
+        <meta property="og:title" content="CSE Aluminate - Connect with CSE Alumni & Find Expert Services" />
         <meta 
           property="og:description" 
-          content="Discover and connect with ESI alumni professionals. Find expert services, skills, and talent across various industries." 
+          content="Discover and connect with CSE alumni professionals. Find expert services, skills, and talent across various industries." 
         />
         <meta property="og:image" content="/SEOpage.png" />
         <meta property="og:image:alt" content="CSE Aluminate - Alumni Network Platform" />
@@ -65,10 +65,10 @@ export default function Home() {
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://cse-aluminate.cse.club/" />
-        <meta name="twitter:title" content="CSE Aluminate - Connect with ESI Alumni & Find Expert Services" />
+        <meta name="twitter:title" content="CSE Aluminate - Connect with CSE Alumni & Find Expert Services" />
         <meta 
           name="twitter:description" 
-          content="Discover and connect with ESI alumni professionals. Find expert services, skills, and talent across various industries." 
+          content="Discover and connect with CSE alumni professionals. Find expert services, skills, and talent across various industries." 
         />
         <meta name="twitter:image" content="/SEOpage.png" />
         <meta name="twitter:image:alt" content="CSE Aluminate - Alumni Network Platform" />
@@ -87,7 +87,7 @@ export default function Home() {
               "name": "CSE Aluminate",
               "url": "https://cse-aluminate.cse.club",
               "logo": "https://cse-aluminate.cse.club/aluminate.svg",
-              "description": "ESI Alumni network platform connecting graduates with expert services and professional opportunities",
+              "description": "CSE Alumni network platform connecting graduates with expert services and professional opportunities",
               "foundingDate": "2024",
               "sameAs": [
                 "https://facebook.com/yourpage",
