@@ -35,15 +35,15 @@ export default function Home() {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title>CSE Aluminate - Connect with ESI Alumni & Find Expert Services</title>
-        <meta name="title" content="CSE Aluminate - Connect with ESI Alumni & Find Expert Services" />
+        <title>CSE Aluminate - Connect with CSE Alumni & Find Expert Services</title>
+        <meta name="title" content="CSE Aluminate - Connect with CSE Alumni & Find Expert Services" />
         <meta 
           name="description" 
-          content="Discover and connect with ESI alumni professionals. Find expert services, skills, and talent across various industries. Join our thriving community of Computer Science Engineering graduates." 
+          content="Discover and connect with CSE alumni professionals. Find expert services, skills, and talent across various industries. Join our thriving community of Computer Science Engineering graduates." 
         />
         <meta 
           name="keywords" 
-          content="ESI alumni, computer science alumni, engineering graduates, professional network, expert services, skills directory, CSE community, alumni network, tech professionals" 
+          content="CSE alumni, computer science alumni, engineering graduates, professional network, expert services, skills directory, CSE community, alumni network, tech professionals" 
         />
         <meta name="author" content="Scientific Club of ESI" />
         
